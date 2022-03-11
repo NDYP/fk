@@ -6,7 +6,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?= base_url('registrasi/index') ?>" class="btn btn-sm btn-warning"><span
+                    <a href="<?= base_url('registrasi/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
                     <!-- <a href="<?= base_url('registrasi/tambah/' . $id_registrasi) ?>" class="btn btn btn-sm bg-red"><i
@@ -56,10 +56,10 @@
                                 <td style="text-align: center;">
                                     <?php if ($x['status'] == 'Pengajuan') : ?>
                                     <a href="<?= base_url('registrasi/terima/' . $x['id_registrasi']); ?>"
-                                        class="btn btn-sm btn-success"><i class="fa fa-eye"></i>
+                                        class="btn btn-social btn-sm btn-success"><i class="fa fa-eye"></i>
                                         Terima</a>
                                     <a href="<?= base_url('registrasi/tolak/' . $x['id_registrasi']); ?>"
-                                        class="btn btn-sm btn-warning"><i class="fa fa-eye"></i>
+                                        class="btn btn-social btn-sm btn-warning"><i class="fa fa-eye"></i>
                                         Tolak</a>
                                     <?php endif; ?>
                                 </td>

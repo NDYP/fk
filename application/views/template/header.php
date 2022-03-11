@@ -188,7 +188,7 @@ desired effect
                                         <a href="<?= base_url('akun') ?>" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="<?= base_url('akun/logout') ?>" class="btn btn-default btn-flat">Sign
+                                        <a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Sign
                                             out</a>
                                     </div>
                                 </li>
@@ -216,7 +216,7 @@ desired effect
                     <div class="pull-left info">
                         <p> <?php if ($this->session->userdata('id_mahasiswa')) : ?>
                             NIM.<?= $this->session->userdata('nip'); ?>
-                            <?php elseif ($this->session->userdata('id_mahasiswa')) : ?>
+                            <?php elseif ($this->session->userdata('id_dosen')) : ?>
                             NIP.<?= $this->session->userdata('nip'); ?>
                             <?php else : ?>
                             <?= $this->session->userdata('username'); ?>
@@ -245,13 +245,17 @@ desired effect
                     <li class=""><a href="<?= base_url('dosen') ?>"><i class="fa fa-file"></i>
                             <span>Dosen</span></a></li>
                     <li class=""><a href="<?= base_url('registrasi') ?>"><i class="fa fa-print"></i>
-                            <span>Registrasi</span></a></li>
-                    <li class=""><a href="<?= base_url('krs_mhs') ?>"><i class="fa fa-print"></i>
-                            <span>KRS</span></a></li>
+                            <span>Registrasi (admin)</span></a></li>
                     <li class=""><a href="<?= base_url('registrasi_mhs') ?>"><i class="fa fa-print"></i>
-                            <span>Registrasi Mahasiswa</span></a></li>
+                            <span>Registrasi (Mahasiswa)</span></a></li>
+                    <li class=""><a href="<?= base_url('konsultasi') ?>"><i class="fa fa-users"></i>
+                            <span>Konsultasi (dosen)</span></a></li>
+                    <li class=""><a href="<?= base_url('krs_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>KRS (Mahasiswa)</span></a></li>
                     <li class=""><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-users"></i>
-                            <span>Mahasiswa</span></a></li>
+                            <span>Mahasiswa (Admin)</span></a></li>
+                    <li class=""><a href="<?= base_url('bimbingan') ?>"><i class="fa fa-users"></i>
+                            <span>Mahasiswa (Dosen)</span></a></li>
                     <li class=""><a href="<?= base_url('pejabat_fakultas') ?>"><i class="fa fa-users"></i>
                             <span>Pejabat Fakultas</span></a></li>
                     <li class=""><a href="<?= base_url('tahun_ajaran') ?>"><i class="fa fa-calendar"></i>

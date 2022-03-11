@@ -4,7 +4,7 @@
         <div class="col-xs-12">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <a href="<?= base_url('tahun_ajaran/index') ?>" class="btn btn-sm btn-warning"><span
+                    <a href="<?= base_url('tahun_ajaran/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
                 </div>
@@ -50,7 +50,8 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button class="btn btn-sm bg-red btn"><span class="fa fa-save"></span> Simpan</button>
+                        <button class="btn btn-social btn-sm bg-red btn"><span class="fa fa-save"></span>
+                            Simpan</button>
                     </div>
                     <!-- /.box-body -->
                 </form>

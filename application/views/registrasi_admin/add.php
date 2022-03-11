@@ -5,7 +5,7 @@
             <div class="box box-default">
                 <div class="box-header with-border">
                     <a href="<?= base_url('registrasi/lihat/' . $id_tahun_ajaran) ?>"
-                        class="btn btn-sm btn-warning"><span class="fa fa-list"></span>
+                        class="btn btn-social btn-sm btn-warning"><span class="fa fa-list"></span>
                         Kembali</a>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button class="btn btn-sm bg-red btn" type="submit"><span class="fa fa-save"></span>
+                        <button class="btn btn-social btn-sm bg-red btn" type="submit"><span class="fa fa-save"></span>
                             Simpan</button>
                     </div>
                     <!-- /.box-body -->

@@ -6,35 +6,48 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Daftar Pengampu Modul/Tahun Akademik</h3>
+                    <!-- <a href="<?= base_url('k/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
+                            class="fa fa-user-plus"></i>
+                        Tambah</a> -->
                 </div>
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th style="text-align: center;">No.</th>
-                                <th style="text-align: center;">Tahun</th>
+                                <th style="text-align: center;">Nama</th>
+                                <th style="text-align: center;">NIM</th>
+                                <th style="text-align: center;">Tahun Akademik</th>
                                 <th style="text-align: center;">Semester</th>
+                                <th style="text-align: center;">Status</th>
                                 <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($pengampu_modul as $x) : ?>
+                            foreach ($krs as $x) : ?>
                             <tr>
                                 <td style="text-align: center;">
                                     <?= $no++ ?>
                                 </td>
+                                <td>
+                                    <?= $x['nama'] ?>
+                                </td>
+                                <td>
+                                    NIM.<?= $x['nim'] ?>
+                                </td>
 
-                                <td style="text-align: center;"><?= $x['tahun_akademik'] ?>
+                                <td><?= $x['tahun_akademik'] ?>-<?= $x['semester'] ?>
                                 </td>
                                 <td style="text-align: center;">
-                                    <?= $x['semester'] ?>
+                                    <?= $x['smt'] ?>
                                 </td>
                                 <td style="text-align: center;">
-                                    <a href="<?= base_url('pengampu_modul/lihat/' . $x['id_tahun_ajaran']); ?>"
-                                        class="btn btn-social btn-sm btn-info"><i class="fa fa-eye"></i> Lihat Daftar
-                                        Pengampu</a>
+                                    <?= $x['status'] ?>
+                                </td>
+                                <td style="text-align: center;">
+                                    <a href="<?= base_url('konsultasi/lihat/' . $x['id_krs']); ?>"
+                                        class="btn btn-social  btn-sm btn-info"><i class="fa fa-eye"></i> Lihat</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

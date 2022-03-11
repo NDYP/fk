@@ -45,7 +45,7 @@
                     </table> -->
             <div class="row">
                 <div class="col-md-12">
-                    <a href="<?= base_url('pejabat_fakultas/tambah') ?>" class="btn btn btn-sm bg-red"><i
+                    <a href="<?= base_url('pejabat_fakultas/tambah') ?>" class="btn btn-social btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
                         Tambah</a>
                 </div>

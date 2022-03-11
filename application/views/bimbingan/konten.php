@@ -5,40 +5,36 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
-                <div class="box-header">
-                    <a href="<?= base_url('dosen/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
-                            class="fa fa-user-plus"></i>
-                        Tambah</a>
-                </div>
+
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped" style="width: 100%;">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th align="center">No.</th>
-                                <th align="center">Foto</th>
-                                <th align="center">NIP</th>
-                                <th align="center">Nama</th>
-                                <th align="center">Email</th>
-                                <th align="center">Kontak</th>
-                                <th align="center">Aksi</th>
+                                <th style="text-align: center;">No.</th>
+                                <th style="text-align: center;">Foto</th>
+                                <th style="text-align: center;">NIM</th>
+                                <th style="text-align: center;">Nama</th>
+                                <th style="text-align: center;">Email</th>
+                                <!-- <th style="text-align: center;">Pembimbing Akademik</th> -->
+                                <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($dosen as $x) : ?>
+                            foreach ($mahasiswa as $x) : ?>
                             <tr>
-                                <td>
+                                <td style="text-align: center;">
                                     <?= $no++ ?>
                                 </td>
                                 <td>
                                     <div class="product-img">
                                         <img class="img center-block img-responsive img-thumnail"
                                             style="max-width: 200px;"
-                                            src="<?= base_url('assets/foto/dosen/' . $x['foto']) ?>" alt="">
+                                            src="<?= base_url('assets/foto/mahasiswa/' . $x['foto']) ?>" alt="">
                                     </div>
                                 </td>
-                                <td><?= $x['nip'] ?>
+                                <td><?= $x['nim'] ?>
                                 </td>
                                 <td>
                                     <?= $x['nama'] ?>
@@ -46,16 +42,12 @@
                                 <td>
                                     <?= $x['email'] ?>
                                 </td>
-                                <td>
-                                    <?= $x['kontak'] ?>
-                                </td>
-                                <td>
-                                    <a href="<?= base_url('dosen/edit/' . $x['id_dosen']); ?>"
-                                        class="btn btn-social-icon btn-success"><i class="fa fa-edit"></i></a>
-                                    <a href="<?= base_url('dosen/hapus/' . $x['id_dosen']); ?>"
-                                        class="btn btn-social-icon btn-warning tombol-hapus"><i
-                                            class="fa fa-trash"></i></a>
-
+                                <!-- <td>
+                                    <?= $x['nama_dosen'] ?>
+                                </td> -->
+                                <td style="text-align: center;">
+                                    <a href="<?= base_url('bimbingan/detail/' . $x['id_mahasiswa']); ?>"
+                                        class="btn btn-social-icon btn-success"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

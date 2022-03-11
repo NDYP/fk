@@ -35,7 +35,7 @@ class Login extends CI_Controller
         $admin = $this->M_Login->admin($username);
         if ($data = $admin->row_array()) {
             if (($password == $data['password'])) {
-                $all = [
+                $a = [
                     'id_admin' => $data['id_admin'],
                     'username' => $data['username'],
                     'password' => $data['password'],
@@ -43,7 +43,7 @@ class Login extends CI_Controller
                     'nama' => $data['nama'],
                     'foto' => $data['foto'],
                 ];
-                $this->session->set_userdata($all);
+                $this->session->set_userdata($a);
                 redirect('mahasiswa/index', 'refresh');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah</div>');
@@ -51,7 +51,7 @@ class Login extends CI_Controller
             }
         } elseif ($data = $dosen->row_array()) {
             if (($password == $data['nip'])) {
-                $all = [
+                $b = [
                     'id_dosen' => $data['id_dosen'],
                     'nip' => $data['nip'],
                     'nama' => $data['nama'],
@@ -59,15 +59,15 @@ class Login extends CI_Controller
                     'kontak' => $data['kontak'],
                     'foto' => $data['foto'],
                 ];
-                $this->session->set_userdata($all);
-                redirect('mahasiswa/index', 'refresh');
+                $this->session->set_userdata($b);
+                redirect('konsultasi/index', 'refresh');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah</div>');
                 redirect('login/index');
             }
         } elseif ($data = $mhs->row_array()) {
             if (($password == $data['nim'])) {
-                $all = [
+                $c = [
                     'id_mahasiswa' => $data['id_mahasiswa'],
                     'nip' => $data['nim'],
                     'nama' => $data['nama'],
@@ -89,8 +89,8 @@ class Login extends CI_Controller
                     'prodi' => $data['prodi'],
                     'foto' => $data['foto'],
                 ];
-                $this->session->set_userdata($all);
-                redirect('mahasiswa/index', 'refresh');
+                $this->session->set_userdata($c);
+                redirect('registrasi_mhs/index', 'refresh');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah</div>');
                 redirect('login/index');
@@ -99,5 +99,10 @@ class Login extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun tidak terdaftar</div>');
             redirect('login/index');
         }
+    }
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('login/index', 'refresh');
     }
 }

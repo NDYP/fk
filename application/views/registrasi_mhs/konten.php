@@ -6,7 +6,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?= base_url('registrasi_mhs/tambah') ?>" class="btn btn btn-sm bg-red"><i
+                    <a href="<?= base_url('registrasi_mhs/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
                         Tambah</a>
                 </div>
@@ -51,12 +51,12 @@
                                 <td style="text-align: center;">
                                     <?php if ($x['status'] == 'Ditolak') : ?>
                                     <a href="<?= base_url('registrasi_mhs/revisi/' . $x['id_registrasi']); ?>"
-                                        class="btn btn-sm btn-info"><i class="fa fa-edit"></i>
+                                        class="btn btn-social btn-sm btn-info"><i class="fa fa-edit"></i>
                                         Revisi</a>
                                     <?php elseif ($x['status'] == 'Diterima') : ?>
-                                    <a href="<?= base_url('krs/tambah/' . $x['id_registrasi']); ?>"
-                                        class="btn btn-sm btn-info"><i class="fa fa-plus"></i>
-                                        KRS</a>
+                                    <a href="<?= base_url('krs_mhs/tambah/' . $x['id_registrasi']); ?>"
+                                        class="btn btn-social btn-sm btn-info"><i class="fa fa-plus"></i>
+                                        Konsultasi KRS</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>

@@ -6,7 +6,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?= base_url('tahun_ajaran/tambah') ?>" class="btn btn btn-sm bg-red"><i
+                    <a href="<?= base_url('tahun_ajaran/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
                         Tambah</a>
                 </div>

@@ -6,11 +6,11 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?= base_url('koordinator_modul/index') ?>" class="btn btn-sm btn-warning"><span
+                    <a href="<?= base_url('koordinator_modul/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
                     <a href="<?= base_url('koordinator_modul/tambah/' . $id_tahun_ajaran) ?>"
-                        class="btn btn btn-sm bg-red"><i class="fa fa-user-plus"></i>
+                        class="btn btn-social btn btn-sm bg-red"><i class="fa fa-user-plus"></i>
                         Tambah</a>
                 </div>
                 <!-- /.box-header -->

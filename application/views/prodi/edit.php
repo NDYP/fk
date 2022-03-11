@@ -7,7 +7,7 @@
 
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <a href="<?= base_url('prodi/index') ?>" class="btn btn-sm btn-warning"><span
+                    <a href="<?= base_url('prodi/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
                 </div>
@@ -50,7 +50,7 @@
                         <!-- /.box-body -->
                     </div>
                     <div class="box-footer">
-                        <button class="btn btn-sm bg-red btn" type="submit"><span class="fa fa-save"></span>
+                        <button class="btn btn-social btn-sm bg-red btn" type="submit"><span class="fa fa-save"></span>
                             Simpan</button>
                     </div>
                 </form>

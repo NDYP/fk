@@ -33,7 +33,8 @@
                                 </td>
                                 <td style="text-align: center;">
                                     <a href="<?= base_url('koordinator_modul/lihat/' . $x['id_tahun_ajaran']); ?>"
-                                        class="btn btn-sm btn-info"><i class="fa fa-eye"></i> Lihat Koordinator
+                                        class="btn btn-social btn-sm btn-info"><i class="fa fa-eye"></i> Lihat
+                                        Koordinator
                                         Modul</a>
                                 </td>
                             </tr>

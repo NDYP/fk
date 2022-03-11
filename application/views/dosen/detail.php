@@ -4,7 +4,7 @@
         <div class="col-xs-12">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <a href="<?= base_url('fat/index') ?>" class="btn btn-xs bg-blue"><span
+                    <a href="<?= base_url('fat/index') ?>" class="btn btn-social btn-xs bg-blue"><span
                             class="fa fa-arrow-left"></span>
                         Kembali</a>
                 </div>

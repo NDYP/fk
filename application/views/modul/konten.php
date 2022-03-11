@@ -36,7 +36,8 @@
 
 
                                     <a href="<?= base_url('modul/lihat/' . $x['id_prodi']); ?>"
-                                        class="btn btn-sm btn-info"><i class="fa fa-eye"></i> Lihat Modul Mata
+                                        class="btn btn-social btn-sm btn-info"><i class="fa fa-eye"></i> Lihat Modul
+                                        Mata
                                         Kuliah</a>
                                 </td>
 

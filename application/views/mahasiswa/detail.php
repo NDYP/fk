@@ -4,7 +4,7 @@
         <div class="col-xs-12">
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <a href="<?= base_url('mahasiswa/index') ?>" class="btn btn-sm btn-warning"><span
+                    <a href="<?= base_url('mahasiswa/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
                 </div>
