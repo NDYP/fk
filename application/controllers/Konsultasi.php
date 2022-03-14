@@ -30,8 +30,9 @@ class Konsultasi extends CI_Controller
         $data['detail_krs'] = $this->M_Konsultasi->get($id_krs);
         $krs = $data['detail_krs']['smt'];
         $data['sks_yad'] = $this->M_Krs_mhs->sks_yad();
+        $id_mahasiswa = $data['detail_krs']['id_mahasiswa'];
         $data['sks_yad_edit'] = $this->M_Krs_mhs->sks_yad_edit($krs);
-        $data['krs'] = $this->M_Krs_mhs->krs_list_edit($krs);
+        $data['krs'] = $this->M_Konsultasi->krs_list_edit($krs, $id_mahasiswa);
         // $data['dosen_pa'] = $this->db->get_where('dosen', array('id_dosen' => $this->session->userdata('dosen_pa')))->row_array();
         $this->load->view('template/header', $data);
         $this->load->view('konsultasi/edit', $data);

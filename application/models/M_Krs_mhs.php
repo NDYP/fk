@@ -22,10 +22,12 @@ class M_Krs_mhs extends CI_Model
     public function get($id_krs)
     {
         $query = $this->db->select('tahun_ajaran.id_tahun_ajaran,krs.id_krs, krs.id_mahasiswa,krs.id_registrasi, krs.semester as smt,
-        mahasiswa.nama,mahasiswa.nim, dosen.nama as dosen_pa, dosen.nip,tahun_ajaran.tahun_akademik,
-        tahun_ajaran.semester, krs.ips, krs.ipk,krs.sks_kumultatif, krs.sks_yad ')
+        mahasiswa.nama,mahasiswa.nim, mahasiswa.alamat, prodi.program_studi, ds.nama as kaprodi, ds.nip as nip_kaprodi, dosen.nama as dosen_pa, dosen.nip,tahun_ajaran.tahun_akademik,
+        tahun_ajaran.semester, krs.ips, krs.ipk,krs.sks_kumultatif, krs.sks_yad')
             ->from('krs') //urut berdasarkan id
             ->join('mahasiswa', 'krs.id_mahasiswa=mahasiswa.id_mahasiswa', 'left')
+            ->join('prodi', 'mahasiswa.prodi=prodi.id_prodi', 'left')
+            ->join('dosen ds', 'prodi.kaprodi=ds.id_dosen', 'left')
             ->join('dosen', 'mahasiswa.dosen_pa=dosen.id_dosen', 'left')
             ->join('registrasi', 'krs.id_registrasi=registrasi.id_registrasi', 'left')
             ->join('tahun_ajaran', 'registrasi.id_tahun_ajaran=tahun_ajaran.id_tahun_ajaran', 'left')
@@ -79,8 +81,8 @@ class M_Krs_mhs extends CI_Model
     {
         $query = $this->db->select('SUM(m.sks) as sks')
             ->from('detail_krs d') //urut berdasarkan id
-            ->join('modul m', 'd.id_modul=m.id_modul')
-            ->where('d.semester', 0)
+            ->join('modul m', 'd.id_modul=m.id_modul', 'left')
+            // ->where('d.semester', $krs)
             ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->get()
             ->row_array();
@@ -117,6 +119,21 @@ class M_Krs_mhs extends CI_Model
             ->where('d.semester', $krs)
             ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->or_where('d.semester', 0)
+            ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
+            ->get()
+            ->result_array();
+        return $query;
+    }
+    public function krs_get($krs)
+    {
+        $query = $this->db->select('d.id_detail_krs, m.*,
+        ds.nama as nama_ketua, ds.nip as nip_ketua, ds1.nama, ds1.nip')
+            ->from('detail_krs d') //urut berdasarkan id
+            ->join('modul m', 'd.id_modul=m.id_modul', 'left')
+            ->join('koordinator_modul k', 'k.id_modul=m.id_modul', 'left')
+            ->join('dosen ds', 'k.id_dosen=ds.id_dosen', 'left')
+            ->join('dosen ds1', 'k.id_dosen2=ds1.id_dosen', 'left')
+            ->where('d.semester', $krs)
             ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->get()
             ->result_array();

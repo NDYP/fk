@@ -252,6 +252,8 @@ desired effect
                             <span>Konsultasi (dosen)</span></a></li>
                     <li class=""><a href="<?= base_url('krs_mhs') ?>"><i class="fa fa-print"></i>
                             <span>KRS (Mahasiswa)</span></a></li>
+                    <li class=""><a href="<?= base_url('krs') ?>"><i class="fa fa-print"></i>
+                            <span>KRS (Admin)</span></a></li>
                     <li class=""><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-users"></i>
                             <span>Mahasiswa (Admin)</span></a></li>
                     <li class=""><a href="<?= base_url('bimbingan') ?>"><i class="fa fa-users"></i>

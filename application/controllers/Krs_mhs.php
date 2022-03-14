@@ -184,4 +184,20 @@ class Krs_mhs extends CI_Controller
             redirect('krs_mhs');
         }
     }
+    function cetak($id_krs)
+    {
+        $data['detail_krs'] = $this->M_Krs_mhs->get($id_krs);
+        $krs = $data['detail_krs']['smt'];
+        $data['sks_yad'] = $this->M_Krs_mhs->sks_yad();
+        $data['sks_kumul'] = $this->M_Krs_mhs->sks_kumul();
+        $data['sks_yad_edit'] = $this->M_Krs_mhs->sks_yad_edit($krs);
+        $data['krs'] = $this->M_Krs_mhs->krs_get($krs);
+        $this->load->library('Pdf');
+        $this->pdf->setPaper('legal', 'potrait');
+        $this->pdf->set_option('isRemoteEnabled', true);
+        // $this->pdf->render();
+        // $this->pdf->filename = $filename . '.pdf';
+        $this->pdf->load_view('krs_mhs/cetak', $data);
+        // var_dump($data['sks_yad']);
+    }
 }

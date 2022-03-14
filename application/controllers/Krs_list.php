@@ -39,7 +39,7 @@ class Krs_list extends CI_Controller
             );
             // var_dump($data);
             $this->M_Modul->tambah('detail_krs', $data);
-            $this->session->set_flashdata('flash', 'ditambah');
+            $this->session->set_flashdata('flash', 'ditambah, silahkan tekan tombol simpan untuk validasi modul');
             redirect($_SERVER['HTTP_REFERER']);
         }
     }

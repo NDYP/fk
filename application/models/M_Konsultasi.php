@@ -37,7 +37,19 @@ class M_Konsultasi extends CI_Model
             ->row_array(); //ditampilkan dalam bentuk array
         return $query;
     }
-
+    public function krs_list_edit($krs, $id_mahasiswa)
+    {
+        $query = $this->db->select('d.id_detail_krs, m.*')
+            ->from('detail_krs d') //urut berdasarkan id
+            ->join('modul m', 'd.id_modul=m.id_modul')
+            ->where('d.semester', $krs)
+            ->where('d.id_mahasiswa', $id_mahasiswa)
+            ->or_where('d.semester', 0)
+            ->where('d.id_mahasiswa', $id_mahasiswa)
+            ->get()
+            ->result_array();
+        return $query;
+    }
     public function update($tabel, $data, $where)
     {
         return $this->db->update($tabel, $data, $where);
