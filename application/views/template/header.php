@@ -254,7 +254,9 @@ desired effect
                             <span>KRS (Mahasiswa)</span></a></li>
                     <li class=""><a href="<?= base_url('krs') ?>"><i class="fa fa-print"></i>
                             <span>KRS (Admin)</span></a></li>
-                    <li class=""><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-users"></i>
+                    <li class=""><a href="<?= base_url('nilai_akhir') ?>"><i class="fa fa-print"></i>
+                            <span>Nilai Akhir SMT (Dosen)</span></a></li>
+                    <li class=""><a href="<?= base_url('nilai_akhir') ?>"><i class="fa fa-users"></i>
                             <span>Mahasiswa (Admin)</span></a></li>
                     <li class=""><a href="<?= base_url('bimbingan') ?>"><i class="fa fa-users"></i>
                             <span>Mahasiswa (Dosen)</span></a></li>
