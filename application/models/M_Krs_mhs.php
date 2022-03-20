@@ -22,7 +22,7 @@ class M_Krs_mhs extends CI_Model
     public function get($id_krs)
     {
         $query = $this->db->select('tahun_ajaran.id_tahun_ajaran,krs.id_krs, krs.id_mahasiswa,krs.id_registrasi, krs.semester as smt,
-        mahasiswa.nama,mahasiswa.nim, mahasiswa.alamat, prodi.program_studi, ds.nama as kaprodi, ds.nip as nip_kaprodi, dosen.nama as dosen_pa, dosen.nip,tahun_ajaran.tahun_akademik,
+        mahasiswa.nama,mahasiswa.nim,mahasiswa.prodi, mahasiswa.alamat, prodi.program_studi, ds.nama as kaprodi, ds.nip as nip_kaprodi, dosen.nama as dosen_pa, dosen.nip,tahun_ajaran.tahun_akademik,
         tahun_ajaran.semester, krs.ips, krs.ipk,krs.sks_kumultatif, krs.sks_yad')
             ->from('krs') //urut berdasarkan id
             ->join('mahasiswa', 'krs.id_mahasiswa=mahasiswa.id_mahasiswa', 'left')
@@ -71,7 +71,7 @@ class M_Krs_mhs extends CI_Model
             ->join('detail_krs d', 'k.semester=d.semester', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
-            ->where('n.keterangan', 'L')
+            // ->where('n.keterangan', 'L')
             ->where('k.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->get()
             ->row_array();
@@ -83,6 +83,7 @@ class M_Krs_mhs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             // ->where('d.semester', $krs)
+            ->where('d.id_nilai', 0)
             ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->get()
             ->row_array();
@@ -93,8 +94,8 @@ class M_Krs_mhs extends CI_Model
         $query = $this->db->select('SUM(m.sks) as sks')
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul')
-            // ->where('d.semester', $krs)
-            ->where('d.semester', 0)
+            ->where('d.semester', $krs)
+            // ->where('d.semester', 0)
             ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->get()
             ->row_array();
@@ -117,9 +118,9 @@ class M_Krs_mhs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul')
             ->where('d.semester', $krs)
-            ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
-            ->or_where('d.semester', 0)
-            ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
+            // ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
+            // ->where('d.id_nilai', 0)
+            // ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
             ->get()
             ->result_array();
         return $query;

@@ -256,7 +256,13 @@ desired effect
                             <span>KRS (Admin)</span></a></li>
                     <li class=""><a href="<?= base_url('nilai_akhir') ?>"><i class="fa fa-print"></i>
                             <span>Nilai Akhir SMT (Dosen)</span></a></li>
-                    <li class=""><a href="<?= base_url('nilai_akhir') ?>"><i class="fa fa-users"></i>
+                    <li class=""><a href="<?= base_url('nilai_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>Nilai Akhir (Admin)</span></a></li>
+                    <li class=""><a href="<?= base_url('khs') ?>"><i class="fa fa-print"></i>
+                            <span>KHS (Admin)</span></a></li>
+                    <li class=""><a href="<?= base_url('transkrip_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>Transkrip (MHS)</span></a></li>
+                    <li class=""><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-users"></i>
                             <span>Mahasiswa (Admin)</span></a></li>
                     <li class=""><a href="<?= base_url('bimbingan') ?>"><i class="fa fa-users"></i>
                             <span>Mahasiswa (Dosen)</span></a></li>

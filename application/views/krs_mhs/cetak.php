@@ -76,7 +76,7 @@
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
             <td width=130>
-                DBC116039
+                <?= $detail_krs['nim']; ?>
             <td></td>
             <td width=70>
                 Program Studi
@@ -98,7 +98,7 @@
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
             <td width=130>
-                Sarjana / S1
+                <?= $detail_krs['prodi'] < 4 ? 'Sarjana / S1' : 'Dokter Umum'; ?>
         </tr>
 
         <tr>
@@ -272,7 +272,7 @@
             </td>
 
             <td width="100" style="text-align: center;">
-                <b><u>Pebri Andhi Herry Pratama Nyahui Dajabar</u></b>
+                <b><u> <?= $detail_krs['nama']; ?></u></b>
             </td>
             <td width=5 style="padding: 1px; margin: 1px"></td>
         </tr>
@@ -283,7 +283,7 @@
             <td width=>
             </td>
             <td width="100" style="text-align: center;">
-                NIM.62331233388888772
+                NIM.<?= $detail_krs['nim']; ?>
             </td>
             <td width=5 style="padding: 1px; margin: 1px"></td>
         </tr>

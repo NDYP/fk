@@ -6,7 +6,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?= base_url('nilai_akhir/index') ?>" class="btn btn-social btn-sm btn-warning"><span
+                    <a href="<?= base_url('nilai_mhs/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
 
@@ -38,10 +38,10 @@
                                 <td><?= $x['sks'] ?>
                                 <td><?= $x['smt'] ?>
                                 <td style="text-align: center;">
-                                    <a href="<?= base_url('nilai_akhir/detail/' . $x['id_modul']); ?>"
+                                    <a href="<?= base_url('nilai_mhs/detail/' . $x['id_modul']); ?>"
                                         class="btn btn-social btn-sm btn-info"><i class="fa fa-eye"> </i>Input Nilai
                                         KRS</a>
-                                    <a href="<?= base_url('nilai_akhir/cetak/' . $x['id_modul']) ?>"
+                                    <a href="<?= base_url('nilai_mhs/cetak/' . $x['id_modul']) ?>"
                                         class="btn btn-social btn-sm btn-danger"><span class="fa fa-print"></span>
                                         Cetak list nilai</a>
                                 </td>

@@ -107,7 +107,7 @@
                                     <div class="form-group">
                                         <label for="">SKS yad.</label>
                                         <input name="sks_yad"
-                                            value="<?= $sks_yad['sks'] ?: 0 + $sks_yad_edit['sks'] ?: 0; ?>"
+                                            value="<?= $detail_krs['sks_yad'] ?: 0 + $sks_yad_edit['sks'] ?: 0; ?>"
                                             type=" text" class="form-control" id="" placeholder="" readonly>
                                     </div>
                                 </div>

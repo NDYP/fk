@@ -22,6 +22,7 @@ class M_Krs extends CI_Model
             ->result_array(); //ditampilkan dalam bentuk array
         return $query;
     }
+
     public function detail($id_krs)
     {
         $query = $this->db->select('tahun_ajaran.id_tahun_ajaran,krs.id_krs, krs.id_mahasiswa,krs.id_registrasi, krs.semester as smt,
@@ -50,6 +51,7 @@ class M_Krs extends CI_Model
             ->join('dosen ds', 'k.id_dosen=ds.id_dosen', 'left')
             ->join('dosen ds1', 'k.id_dosen2=ds1.id_dosen', 'left')
             ->where('d.id_mahasiswa', $id_mahasiswa)
+            ->where('d.id_nilai', 0)
             ->get()
             ->result_array();
         return $query;

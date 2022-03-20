@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Nilai_akhir extends CI_Model
+class M_Nilai_mhs extends CI_Model
 {
     public function index()
     {
@@ -15,30 +15,23 @@ class M_Nilai_akhir extends CI_Model
     }
     public function get($id_tahun_ajaran)
     {
-        $query = $this->db->select('koordinator_modul.id_koordinator_modul,koordinator_modul.id_tahun_ajaran
-        ,modul.kode,modul.id_modul, modul.mata_kuliah,modul.sks, koordinator_modul.id_dosen2,
-        modul.sks,modul.semester, modul.semester as smt, prodi.id_prodi,
-        modul.tahun,modul.durasi, prodi.program_studi, a.nama, a.nip,  b.nama as nama_sekretaris, b.nip as nip_sekretaris,
-        tahun_ajaran.tahun_akademik, tahun_ajaran.semester')
-            ->from('koordinator_modul') //urut berdasarkan id
-            ->join('modul', 'modul.id_modul=koordinator_modul.id_modul', 'left')
+        $query = $this->db->select('modul.kode,modul.id_modul, modul.mata_kuliah,modul.sks, modul.semester as smt, prodi.id_prodi,
+        modul.tahun,modul.durasi, prodi.program_studi')
+            ->from('modul') //urut berdasarkan id
+            ->join('koordinator_modul', 'modul.id_modul=koordinator_modul.id_modul', 'left')
             ->join('tahun_ajaran', 'koordinator_modul.id_tahun_ajaran=tahun_ajaran.id_tahun_ajaran', 'left')
             ->join('prodi', 'modul.prodi=prodi.id_prodi', 'left')
-            ->join('dosen', 'prodi.kaprodi=dosen.id_dosen', 'left')
-            ->join('dosen a', 'koordinator_modul.id_dosen=a.id_dosen', 'left')
-            ->join('dosen b', 'koordinator_modul.id_dosen2=b.id_dosen', 'left')
             ->where('koordinator_modul.id_tahun_ajaran', $id_tahun_ajaran)
-            ->where('koordinator_modul.id_dosen', $this->session->userdata('id_dosen'))
-            ->order_by('koordinator_modul.id_koordinator_modul', 'desc')
+            ->order_by('modul.semester', 'asc')
             ->get();
         return $query;
     }
     public function mahasiswa($id_modul)
     {
         $query = $this->db->select('mahasiswa.nama,mahasiswa.nim, detail_krs.semester
-        ,modul.id_modul, detail_krs.id_detail_krs, nilai.*, mahasiswa.prodi,
+        ,modul.id_modul, detail_krs.id_detail_krs, nilai.*,
         a.nama as nama_ketua, a.nip as nip_ketua,  b.nama as nama_sekretaris, b.nip as nip_sekretaris, modul.mata_kuliah,
-        modul.kode, modul.sks, prodi.program_studi, tahun_ajaran.tahun_akademik, tahun_ajaran.semester,detail_krs.penginput as nama_penginput,
+        modul.kode, modul.sks, prodi.program_studi,mahasiswa.prodi, tahun_ajaran.tahun_akademik, tahun_ajaran.semester, detail_krs.penginput as nama_penginput,
         detail_krs.timestamp')
             ->from('detail_krs') //urut berdasarkan id
             ->join('modul', 'detail_krs.id_modul=modul.id_modul', 'left')
