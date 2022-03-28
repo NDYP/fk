@@ -54,7 +54,6 @@
                                     <?= form_error('nama', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-4">
@@ -79,7 +78,6 @@
                                         <div class="col-md-6">
                                             <input name="tempat_lahir" value="<?= $mahasiswa['tempat_lahir']; ?>"
                                                 type=" text" class="form-control" id="" placeholder="">
-                                            <?= form_error('tempat_lahir', '<small class="text-danger pl-1">', '</small>'); ?>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group date">
@@ -90,16 +88,12 @@
                                                     value="<?= date('d-m-Y', strtotime($mahasiswa['tanggal_lahir'])); ?>"
                                                     id="datepicker">
                                             </div>
-                                            <?= form_error('tanggal_lahir', '<small class="text-danger pl-1">', '</small>'); ?>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
                         <div class="row">
-
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">Jenis Kelamin</label>
@@ -131,7 +125,6 @@
                                     </textarea>
                                 </div>
                             </div>
-
                         </div>
                         <!-- <div class="btn btn-default col-md-12"><u><b>DATA ORANG TUA</b></u></div> -->
                         <div class="callout callout-success">
@@ -187,9 +180,7 @@
                                         <option name="prodi" value="<?= $x['id_prodi']; ?>"><?= $x['program_studi']; ?>
                                         </option>
                                         <?php endif; ?>
-
                                         <?php endforeach; ?>
-
                                     </select>
                                     <?= form_error('prodi', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
@@ -218,14 +209,11 @@
                                                     MANDIRI
                                                 </option>
                                             </select>
-                                            <?= form_error('jalur_masuk', '<small class="text-danger pl-1">', '</small>'); ?>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="">Tahun Masuk</label>
                                             <input name="tahun_masuk" value="<?= $mahasiswa['tahun_masuk']; ?>"
                                                 type=" text" class="form-control" id="" placeholder="">
-                                            <?= form_error('tahun_masuk', '<small class="text-danger pl-1">', '</small>'); ?>
-
                                         </div>
                                     </div>
                                 </div>
@@ -235,8 +223,6 @@
                                     <label for="">Nominal UKT</label>
                                     <input name="ukt" value="<?= $mahasiswa['ukt']; ?>" type=" text"
                                         class="form-control" id="" placeholder="Tanpa tanda baca">
-                                    <?= form_error('ukt', '<small class="text-danger pl-1">', '</small>'); ?>
-
                                 </div>
                             </div>
                         </div>
@@ -254,7 +240,6 @@
                                         <option name="dosen_pa" value="<?= $x['id_dosen']; ?>"><?= $x['nama']; ?>
                                         </option>
                                         <?php endif; ?>
-
                                         <?php endforeach; ?>
                                     </select>
                                     <?= form_error('dosen_pa', '<small class="text-danger pl-1">', '</small>'); ?>

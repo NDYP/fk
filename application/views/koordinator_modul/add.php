@@ -22,7 +22,7 @@
                                         <option
                                             value=<?= $x['id_modul']; ?><?= set_select('id_modul', $x['id_modul']); ?>
                                             name="id_modul">
-                                            <?= $x['kode'] . ' - ' . $x['mata_kuliah']; ?>
+                                            <?= 'Kurikulum :' . $x['kurikulum'] . '-' . $x['kode'] . ' - ' . $x['mata_kuliah']; ?>
                                         </option>
                                         <?php endforeach; ?>
                                     </select>

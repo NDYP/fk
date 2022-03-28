@@ -88,11 +88,11 @@
     <table width=100%>
         <tr>
             <td width=100>
-                NAMA
+                Nama
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
             <td width=130>
-                <?= strtoupper($transkrip['nama']) ?>
+                -
             <td></td>
         </tr>
         <tr>
@@ -101,8 +101,7 @@
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
             <td width=130>
-                <?= $transkrip['nim'] ?>
-
+                -
             <td></td>
         </tr>
         <tr>
@@ -111,7 +110,7 @@
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
             <td width=130>
-                KEDOKTERAN
+                -
             </td>
         </tr>
         <tr>
@@ -119,23 +118,14 @@
                 PROGRAM STUDI
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
-            <td><?= strtoupper($transkrip['prodi']) ?></td>
-            <td width=130> </td>
-        </tr>
-        <tr>
-            <td width=70>
-                JENJANG
-            </td>
-            <td width=5 style="padding: 1px; margin: 1px">: </td>
-            <td><?= strtoupper($transkrip['jenjang']) ?></td>
-            <td width=130> </td>
+            <td width=130> - </td>
         </tr>
         <tr>
             <td width=70>
                 SELESAI PADA
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
-            <td width=130> <?= date('F Y', strtotime(strtoupper($transkrip['selesai_pada']))); ?> </td>
+            <td width=130> - </td>
         </tr>
     </table>
     <br>
@@ -156,64 +146,46 @@
                 <th style="text-align: center;">
                     SKSN</th>
                 <th style="text-align: center;">
-                    HM </th>
+                    HM<< /th>
             </tr>
-            <?php $no = 1;
-            foreach ($list as $x) : ?>
             <tr border="2">
-                <td style="text-align: center;padding-left: 5px; padding-right:5px;"><?= $no++ ?></td>
-                <td style="text-align: center;padding-left: 5px; padding-right:5px;"><?= $x['mata_kuliah'] ?>
+                <td style="text-align: center;padding-left: 5px; padding-right:5px;"></td>
+                <td style="text-align: center;padding-left: 5px; padding-right:5px;">dr. Donna Novina Kahanjak, M.Biomed
                 </td>
                 <td style="text-align: center;padding-left: 3px; padding-right:3px;">
-                    <?= $x['kode'] ?>
                 </td>
-                <td style="text-align: center;padding-left: 5px; padding-right:5px;"><?= $x['sks'] ?></td>
-                <td style="text-align: center;padding-left: 5px; padding-right:5px;"><?= $x['angka'] ?></td>
-                <td style="text-align: center;padding-left: 5px; padding-right:5px;">
-                    <?= number_format($x['sks'] * $x['angka']) ?></td>
-                <td style="text-align: center;padding-left: 5px; padding-right:5px;"><?= $x['mutu'] ?></td>
+                <td style="text-align: center;padding-left: 5px; padding-right:5px;">-</td>
+                <td style="text-align: center;padding-left: 5px; padding-right:5px;"></td>
+                <td style="text-align: center;padding-left: 5px; padding-right:5px;"></td>
+                <td style="text-align: center;padding-left: 5px; padding-right:5px;"></td>
             </tr>
-            <?php endforeach; ?>
             <tr border="2">
                 <td colspan="3" style="text-align: center;padding-left: 5px; padding-right:5px;"><b>JUMLAH</b></td>
-                <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;">
-                    <b><?= $list_sum['jumlah_sks'] ?></b>
-                </td>
+                <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;"><b>xx</b></td>
                 <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;"></td>
-                <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;">
-                    <b><?= $list_sum['jumlah_angka'] ?></b>
-                </td>
-                <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;"><b></b></td>
+                <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;"><b>xx</b></td>
+                <td colspan="" style="text-align: center;padding-left: 5px; padding-right:5px;"><b>xx</b></td>
             </tr>
             <tr border="2">
-                <td colspan="2" style="border-bottom: 1;border-top:0;border-left:0;border-right:0;text-align: center;">
-                    Jumlah Kredit yang
+                <td colspan="2" style="border: 0;text-align: center;">Jumlah Kredit yang
                     dicapai (SKS)</td>
-                <td colspan="" style="border-bottom: 1;border-top:0;border-left:0;border-right:0;text-align: left;">=
-                    <?= $transkrip['sks'] ?></td>
-                <td colspan="2" style="border-bottom: 1;border-top:0;border-left:0;border-right:0;text-align: center;">
-                    Jumlah Kredit Kali
+                <td colspan="" style="border: 0;text-align: left;">= 122</td>
+                <td colspan="2" style="border: 0;text-align: center;">Jumlah Kredit Kali
                     Nilai (ΣSKS.N)</td>
-                <td colspan="2" style="border-bottom: 1;border-top:0;border-left:0;border-right:0;text-align: left;">=
-                    <?= $transkrip['sksn'] ?></td>
-            </tr>
-            <tr border="2">
-                <td colspan="7" style="border: 0;text-align: center;">IPK = <?= number_format($transkrip['ipk'], 2) ?>
-                </td>
-                <!-- <td colspan="4" style="border: 0;text-align: left;">= <?= $transkrip['ipk'] ?></td> -->
+                <td colspan="2" style="border: 0;text-align: left;">= 482</td>
             </tr>
         </table>
     </div>
     <br>
     <br>
     <br>
-    <table style="page-break-after: always;" width=100%>
+    <table width=100%>
         <tr>
             <td width=300>
             </td>
             <td width=30>
             </td>
-            <td style=" text-align: left;" width=>Palangkaraya,
+            <td style="text-align: left;" width=>Palangkaraya,
                 <br>
                 Wakil Dekan Bidang Akademik,
                 <br>
@@ -221,9 +193,9 @@
                 <br>
                 <br>
                 <br>
-                <?= $transkrip['ttd_nama'] ?>
+                dr. Donna Novina Kahanjak, M.Biomed
                 <br>
-                NIP.<?= $transkrip['ttd_nip'] ?>
+                NIP.198111012008012010
             </td>
         </tr>
     </table>

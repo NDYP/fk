@@ -6,12 +6,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a href="<?= base_url('modul/index') ?>" class="btn btn-social btn-sm btn-warning"><span
-                            class="fa fa-list"></span>
-                        Kembali</a>
-                    <a href="<?= base_url('modul/tambah/' . $prodi) ?>" class="btn btn-social btn-sm bg-red"><i
-                            class="fa fa-user-plus"></i>
-                        Tambah</a>
+                    <h3 class="box-title">Modul yang dikoordinator</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -19,32 +14,37 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;">No.</th>
-                                <th style="text-align: center;">Kurikulum</th>
-                                <th style="text-align: center;">Kode MK</th>
-                                <th style="text-align: center;">Mata Kuliah</th>
-                                <th style="text-align: center;">SKS</th>
+                                <th style="text-align: center;">Tahun</th>
                                 <th style="text-align: center;">Semester</th>
+                                <th style="text-align: center;">Status</th>
+
                                 <th style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($modul as $x) : ?>
+                            foreach ($tahun_ajaran as $x) : ?>
                             <tr>
                                 <td>
                                     <?= $no++ ?>
                                 </td>
-                                <td><?= $x['kurikulum'] ?></td>
-                                <td><?= $x['kode'] ?></td>
-                                <td><?= $x['mata_kuliah'] ?>
-                                <td><?= $x['sks'] ?>
-                                <td><?= $x['semester'] ?>
+
+                                <td><?= $x['tahun_akademik'] ?>
+                                </td>
+                                <td>
+                                    <?= $x['semester'] ?>
+                                </td>
+                                <td>
+                                    <?php if ($x['status'] == 1) : ?>
+                                    Aktif
+                                    <?php else : ?>
+                                    Nonaktif
+                                    <?php endif; ?>
+                                </td>
+
                                 <td style="text-align: center;">
-                                    <a href="<?= base_url('modul/edit/' . $x['id_modul']); ?>"
-                                        class="btn btn-social-icon btn-success"><i class="fa fa-edit"></i></a>
-                                    <a href="<?= base_url('modul/hapus/' . $x['id_modul']); ?>"
-                                        class="btn btn-social-icon btn-danger tombol-hapus"><i
-                                            class="fa fa-trash"></i></a>
+                                    <a href="<?= base_url('daftar_hadir/lihat/' . $x['id_tahun_ajaran']); ?>"
+                                        class="btn btn-social btn-info"><i class="fa fa-edit"></i> Lihat Modul</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

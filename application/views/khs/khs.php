@@ -232,7 +232,7 @@
                 <?= $khs['sksn_semester'] ?>
             </td>
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0;border-style: dashed;" width=>
-                <?= $khs['ips'] ?>
+                <?= number_format($khs['ips'], 2) ?>
             </td>
         </tr>
         <tr>
@@ -252,7 +252,7 @@
                 <?= $khs['sksn_kumultatif'] ?>
             </td>
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0;border-style: dashed;" width=>
-                <?= $khs['ipk'] ?>
+                <?= number_format($khs['ipk'], 2) ?>
             </td>
         </tr>
     </table>
@@ -291,10 +291,10 @@
                 <?= $x['sks_semester_beban'] ?>
             </td>
             <td style="text-align: center;border-top:0;border-bottom:0;border-left:0; border-right:0" width=>
-                <?= $x['ips'] ?>
+                <?= number_format($x['ips'], 2) ?>
             </td>
             <td style="text-align: center;border-top:0; border-bottom:0;border-left:0; border-right:0;" width=>
-                <?= $x['ipk'] ?>
+                <?= number_format($x['ipk'], 2) ?>
             </td>
         </tr>
         <?php endforeach; ?>

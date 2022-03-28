@@ -282,20 +282,24 @@
                 IPK
             </td>
         </tr>
+        <?php foreach ($khs_list as $x) : ?>
+
         <tr style="text-align: center; border:0">
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0" width=>
-                1
+                <?= $x['semester'] ?>
             </td>
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0" width=>
-                21
+                <?= $x['sks_semester_beban'] ?>
             </td>
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0" width=>
-                3.5
+                <?= $x['ips'] ?>
             </td>
             <td style="text-align: center; border-bottom:0;border-left:0; border-right:0;" width=>
-                3.5
+                <?= $x['ipk'] ?>
             </td>
         </tr>
+
+        <?php endforeach; ?>
     </table>
     <br>
     <table width=100%>
@@ -312,9 +316,9 @@
                 <br>
                 <br>
                 <br>
-                dr. Donna Novina Kahanjak, M.Biomed
+                <?= $krs['ttd_nama'] ?>
                 <br>
-                NIP.198111012008012010
+                NIP.<?= $krs['ttd_nip'] ?>
             </td>
         </tr>
     </table>

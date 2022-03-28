@@ -51,7 +51,7 @@ class M_Krs extends CI_Model
             ->join('dosen ds', 'k.id_dosen=ds.id_dosen', 'left')
             ->join('dosen ds1', 'k.id_dosen2=ds1.id_dosen', 'left')
             ->where('d.id_mahasiswa', $id_mahasiswa)
-            ->where('d.id_nilai', 0)
+            // ->where('d.id_nilai', 0)
             ->get()
             ->result_array();
         return $query;

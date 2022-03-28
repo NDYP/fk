@@ -42,6 +42,9 @@ class M_Khs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
             ->where('d.id_mahasiswa', $id_mahasiswa)
             ->where('d.semester', $semester)
             ->where('d.id_nilai !=', 0)
@@ -55,6 +58,9 @@ class M_Khs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
             ->where('d.id_mahasiswa', $id_mahasiswa)
             ->where('d.semester', $semester)
             ->where('n.keterangan', 'L')
@@ -68,6 +74,9 @@ class M_Khs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
             ->where('d.id_mahasiswa', $id_mahasiswa)
             ->where('d.semester', $semester)
             ->get()
@@ -81,6 +90,9 @@ class M_Khs extends CI_Model
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
             ->where('d.id_mahasiswa', $id_mahasiswa)
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
             // ->where('d.semester', $semester)
             ->where('n.keterangan', 'L')
             ->get()
@@ -93,6 +105,9 @@ class M_Khs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
             ->where('d.id_mahasiswa', $id_mahasiswa)
             // ->where('d.semester', $semester)
             ->get()
@@ -120,7 +135,7 @@ class M_Khs extends CI_Model
             ->row_array(); //ditampilkan dalam bentuk array
         return $query;
     }
-    public function list_khs($id_krs)
+    public function list_khs($id_krs, $semester)
     {
         $query = $this->db->select('tahun_ajaran.id_tahun_ajaran,khs.id_krs, khs.id_mahasiswa,khs.semester,
         mahasiswa.nama,mahasiswa.nim,mahasiswa.prodi, mahasiswa.alamat, prodi.program_studi, ds.nama as kaprodi, ds.nip as nip_kaprodi, dosen.nama as dosen_pa, dosen.nip,tahun_ajaran.tahun_akademik,
@@ -133,6 +148,7 @@ class M_Khs extends CI_Model
             ->join('dosen', 'mahasiswa.dosen_pa=dosen.id_dosen', 'left')
             ->join('tahun_ajaran', 'khs.id_tahun_ajaran=tahun_ajaran.id_tahun_ajaran', 'left')
             ->where('khs.id_krs', $id_krs)
+            ->where('khs.semester !=', $semester)
             ->order_by('khs.id_khs', 'desc')
             ->get()
             ->result_array(); //ditampilkan dalam bentuk array

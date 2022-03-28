@@ -8,16 +8,8 @@ class M_Prodi extends CI_Model
         $query = $this->db->select('prodi.program_studi, prodi.id_prodi, dosen.nama, dosen.nip')
             ->from('prodi') //urut berdasarkan id
             ->join('dosen', 'prodi.kaprodi=dosen.id_dosen', 'left')
-            // ->join('fat_brand', 'fat.brand=fat_brand.no', 'left')
-            // ->join('fdt', 'fat.id_fdt=fdt.no', 'left')
-            // ->join('mitra_pembangunan', 'fat.instalatir=mitra_pembangunan.no', 'left')
-            // ->join('cluster', 'fat.cluster=cluster.no', 'left')
             ->order_by('prodi.id_prodi', 'desc')
-            // ->group_by('fat.no')
-            // ->group_by('fat_brand.nama_brand')
-            // ->group_by('mitra_pembangunan.nama')
-            // ->group_by('cluster.nama_cluster')
-            // ->group_by('fdt.id_fdt')
+
             ->get()
             ->result_array(); //ditampilkan dalam bentuk array
         return $query;

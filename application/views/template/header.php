@@ -242,30 +242,17 @@ desired effect
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">Akademik</li>
                     <!-- Optionally, you can add icons to the links -->
+                    <?php if ($this->session->userdata('id_admin')) : ?>
                     <li class=""><a href="<?= base_url('dosen') ?>"><i class="fa fa-file"></i>
                             <span>Dosen</span></a></li>
                     <li class=""><a href="<?= base_url('registrasi') ?>"><i class="fa fa-print"></i>
-                            <span>Registrasi (admin)</span></a></li>
-                    <li class=""><a href="<?= base_url('registrasi_mhs') ?>"><i class="fa fa-print"></i>
-                            <span>Registrasi (Mahasiswa)</span></a></li>
-                    <li class=""><a href="<?= base_url('konsultasi') ?>"><i class="fa fa-users"></i>
-                            <span>Konsultasi (dosen)</span></a></li>
-                    <li class=""><a href="<?= base_url('krs_mhs') ?>"><i class="fa fa-print"></i>
-                            <span>KRS (Mahasiswa)</span></a></li>
+                            <span>Registrasi</span></a></li>
                     <li class=""><a href="<?= base_url('krs') ?>"><i class="fa fa-print"></i>
-                            <span>KRS (Admin)</span></a></li>
-                    <li class=""><a href="<?= base_url('nilai_akhir') ?>"><i class="fa fa-print"></i>
-                            <span>Nilai Akhir SMT (Dosen)</span></a></li>
+                            <span>KRS </span></a></li>
                     <li class=""><a href="<?= base_url('nilai_mhs') ?>"><i class="fa fa-print"></i>
-                            <span>Nilai Akhir (Admin)</span></a></li>
-                    <li class=""><a href="<?= base_url('khs') ?>"><i class="fa fa-print"></i>
-                            <span>KHS (Admin)</span></a></li>
-                    <li class=""><a href="<?= base_url('transkrip_mhs') ?>"><i class="fa fa-print"></i>
-                            <span>Transkrip (MHS)</span></a></li>
+                            <span>Nilai Akhir </span></a></li>
                     <li class=""><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-users"></i>
-                            <span>Mahasiswa (Admin)</span></a></li>
-                    <li class=""><a href="<?= base_url('bimbingan') ?>"><i class="fa fa-users"></i>
-                            <span>Mahasiswa (Dosen)</span></a></li>
+                            <span>Mahasiswa </span></a></li>
                     <li class=""><a href="<?= base_url('pejabat_fakultas') ?>"><i class="fa fa-users"></i>
                             <span>Pejabat Fakultas</span></a></li>
                     <li class=""><a href="<?= base_url('tahun_ajaran') ?>"><i class="fa fa-calendar"></i>
@@ -281,12 +268,43 @@ desired effect
                                     <span>Mata Kuliah</span></a></li>
                             <li><a href="<?= base_url('koordinator_modul') ?>"><i class="fa fa-user"></i>
                                     <span>Koordinator</span></a></li>
-                            <li><a href="<?= base_url('pengampu_modul') ?>"><i class="fa fa-users"></i>
-                                    <span>Pengampu</span></a></li>
                         </ul>
                     </li>
                     <li><a href="<?= base_url('prodi') ?>"><i class="fa fa-university"></i> <span>Program
                                 Studi</span></a></li>
+                    <li class=""><a href="<?= base_url('khs') ?>"><i class="fa fa-print"></i>
+                            <span>KHS </span></a></li>
+                    <li class=""><a href="<?= base_url('transkrip') ?>"><i class="fa fa-print"></i>
+                            <span>Transkrip </span></a></li>
+
+                    <li class=""><a href="<?= base_url('surat_aktif') ?>"><i class="fa fa-users"></i>
+                            <span>Surat Aktif </span></a></li>
+
+
+
+                    <?php elseif ($this->session->userdata('id_dosen')) : ?>
+                    <li class=""><a href="<?= base_url('konsultasi') ?>"><i class="fa fa-users"></i>
+                            <span>Konsultasi</span></a></li>
+                    <li class=""><a href="<?= base_url('nilai_akhir') ?>"><i class="fa fa-print"></i>
+                            <span>Nilai Akhir SMT</span></a></li>
+                    <li class=""><a href="<?= base_url('bimbingan') ?>"><i class="fa fa-users"></i>
+                            <span>Mahasiswa</span></a></li>
+                    <li class=""><a href="<?= base_url('daftar_hadir') ?>"><i class="fa fa-users"></i>
+                            <span>Daftar Hadir</span></a></li>
+
+                    <?php elseif ($this->session->userdata('id_mahasiswa')) : ?>
+                    <li class=""><a href="<?= base_url('registrasi_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>Registrasi </span></a></li>
+                    <li class=""><a href="<?= base_url('krs_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>KRS</span></a></li>
+                    <li class=""><a href="<?= base_url('khs_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>KHS</span></a></li>
+                    <li class=""><a href="<?= base_url('surat_aktif_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>Surat Aktif</span></a></li>
+                    <li class=""><a href="<?= base_url('transkrip_mhs') ?>"><i class="fa fa-print"></i>
+                            <span>Transkrip</span></a></li>
+                    <?php endif; ?>
+
 
 
                 </ul>

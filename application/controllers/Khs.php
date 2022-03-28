@@ -60,7 +60,8 @@ class Khs extends CI_Controller
             'id_krs' => $id_krs,
             'ips' => number_format($data['ips']['sksn'] / $data['ips']['sks'], 2),
             'sks_semester_beban' => $data['krs']['sks_yad'],
-            'sks_semester_lulus' => $data['sks_kumultatif_lulus']['sks_lulus'],
+            'sks_semester_lulus' => $data['sks_semester_lulus']['sks_lulus'],
+            // 'sks_semester_lulus' => $data['sks_kumultatif_lulus']['sks_lulus'],
             'sksn_semester' =>  $data['ips']['sksn'],
 
             'id_mahasiswa' => $id_mahasiswa,
@@ -78,6 +79,7 @@ class Khs extends CI_Controller
 
 
         // redirect(base_url() . "khs/lihat/" . $id_tahun_ajaran);
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     function cetak($id_krs)
@@ -87,7 +89,7 @@ class Khs extends CI_Controller
         $semester = $data['khs']['semester'];
 
         $data['list'] = $this->M_Khs->krs_get($id_mahasiswa, $semester);
-        $data['khs_list'] = $this->M_Khs->list_khs($id_krs);
+        $data['khs_list'] = $this->M_Khs->list_khs($id_krs, $semester);
 
         //list khs sebelumnya
         $this->load->library('Pdf');

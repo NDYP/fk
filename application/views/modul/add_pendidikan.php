@@ -97,7 +97,12 @@
                                         class="form-control" id="" placeholder="isi ...">
                                 </div>
                             </div>
-
+                            <div class="col-md-2">
+                                <label for="">Kurikulum</label>
+                                <input name="kurikulum" value="<?= set_value('kurikulum'); ?>" type="text"
+                                    class="form-control" id="" placeholder="isi ...">
+                                <?= form_error('kurikulum', '<small class="text-danger pl-1">', '</small>'); ?>
+                            </div>
 
                         </div>
                     </div>

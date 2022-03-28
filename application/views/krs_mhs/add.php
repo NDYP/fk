@@ -8,6 +8,10 @@
                             class="fa fa-list"></span>
                         Kembali</a>
 
+                    <a href="<?= base_url('krs_list/tambah') ?>" class="btn btn btn-social btn-sm bg-red"><i
+                            class="fa fa-user-plus"></i>
+                        Input Modul</a>
+
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="box-body bg-identitas">
@@ -112,15 +116,8 @@
                             <div class="callout callout-success">
                                 <center><b>MODUL DIAMBIL</b></center>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="<?= base_url('krs_list/tambah') ?>"
-                                        class="btn btn btn-social btn-sm bg-red"><i class="fa fa-user-plus"></i>
-                                        Input Modul</a>
-                                </div>
-                            </div>
-                            <div class="row">
 
+                            <div class="row">
                                 <div class="col-md-12">
                                     <table id="example1" class="table table-bordered table-striped"
                                         style="width: 100%;">
@@ -128,6 +125,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="text-align: center;">No.</th>
+                                                <th style="text-align: center;">Kurikulum</th>
                                                 <th style="text-align: center;">Kode MK</th>
                                                 <th style="text-align: center;">Mata Kuliah</th>
                                                 <th style="text-align: center;">SKS</th>
@@ -142,17 +140,17 @@
                                                 <td>
                                                     <?= $no++ ?>
                                                 </td>
+                                                <td><?= $x['kurikulum'] ?>
                                                 <td><?= $x['kode'] ?>
                                                     <input name="id_detail_krs[]" value="<?= $x['id_detail_krs'] ?>"
-                                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                                        type="hidden" class="form-control" id="" placeholder="">
                                                     <input name="x[]" value="<?= $semester['semester'] + 1; ?>"
-                                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                                        type="hidden" class="form-control" id="" placeholder="">
                                                 </td>
                                                 <td><?= $x['mata_kuliah'] ?>
                                                 <td><?= $x['sks'] ?>
                                                 <td><?= $x['semester'] ?>
                                                 <td style="text-align: center;">
-
                                                     <a href="<?= base_url('krs_list/hapus/' . $x['id_detail_krs']); ?>"
                                                         class="btn btn-social-icon btn-danger tombol-hapus"><i
                                                             class="fa fa-trash"></i></a>
@@ -200,7 +198,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-social btn-sm btn-info" type="submit">
-                                        <i class="fa fa-save"></i> Input KRS
+                                        <i class="fa fa-save"></i> Simpan KRS
                                     </button>
                                 </div>
                             </div>

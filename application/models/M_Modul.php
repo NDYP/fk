@@ -8,7 +8,7 @@ class M_Modul extends CI_Model
         $query = $this->db->select('modul.kode, modul.mata_kuliah,modul.sks, modul.sks,
         modul.semester, modul.semester, prodi.id_prodi,
         modul.tahun,modul.durasi, prodi.program_studi, modul.id_modul, dosen.nama, dosen.nip,
-        prodi.program_studi, prodi.id_prodi')
+        prodi.program_studi, prodi.id_prodi, modul.kurikulum')
             ->from('modul') //urut berdasarkan id
             ->join('prodi', 'modul.prodi=prodi.id_prodi', 'left')
             ->join('dosen', 'prodi.kaprodi=dosen.id_dosen', 'left')
@@ -32,7 +32,7 @@ class M_Modul extends CI_Model
     {
         $query = $this->db->select('modul.kode, modul.mata_kuliah,modul.sks, modul.sks,
         modul.semester, modul.semester, prodi.id_prodi, prodi.program_studi,
-        modul.tahun,modul.durasi, prodi.program_studi, modul.id_modul')
+        modul.tahun,modul.durasi, prodi.program_studi, modul.id_modul, modul.kurikulum')
             ->from('modul') //urut berdasarkan id
             ->join('prodi', 'modul.prodi=prodi.id_prodi', 'left')
 
@@ -45,9 +45,9 @@ class M_Modul extends CI_Model
     public function detail($id_modul)
     {
         $query = $this->db->select('modul.kode, modul.mata_kuliah,modul.sks, modul.sks,
-        modul.semester, modul.semester, prodi.id_prodi,
-        modul.tahun,modul.durasi, prodi.program_studi, modul.id_modul, dosen.nama, dosen.nip,
-        prodi.program_studi, prodi.id_prodi')
+        modul.semester, modul.semester, modul.prodi,
+        modul.tahun,modul.durasi, modul.id_modul, dosen.nama, dosen.nip,
+        prodi.program_studi, prodi.id_prodi, modul.kurikulum')
             ->from('modul') //urut berdasarkan id
             ->join('prodi', 'modul.prodi=prodi.id_prodi', 'left')
             ->join('dosen', 'prodi.kaprodi=dosen.id_dosen', 'left')

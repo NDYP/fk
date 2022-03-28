@@ -199,8 +199,16 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Dosen PA</label>
+                                    <label for="">Pembimbing Akademik</label>
                                     <input name="ukt" value="<?= $mahasiswa['nama_dosen']; ?>" type=" text"
+                                        class="form-control" id="" placeholder="Tanpa tanda baca" readonly>
+                                    <?= form_error('dosen_pa', '<small class="text-danger pl-1">', '</small>'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">NIK</label>
+                                    <input name="ukt" value="<?= $mahasiswa['nip_dosen']; ?>" type=" text"
                                         class="form-control" id="" placeholder="Tanpa tanda baca" readonly>
                                     <?= form_error('dosen_pa', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>

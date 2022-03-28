@@ -126,6 +126,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="text-align: center;">No.</th>
+                                                <th style="text-align: center;">Kurikulum</th>
                                                 <th style="text-align: center;">Kode MK</th>
                                                 <th style="text-align: center;">Mata Kuliah</th>
                                                 <th style="text-align: center;">SKS</th>
@@ -140,11 +141,12 @@
                                                 <td>
                                                     <?= $no++ ?>
                                                 </td>
+                                                <td><?= $x['kurikulum'] ?>
                                                 <td><?= $x['kode'] ?>
                                                     <input name="id_detail_krs[]" value="<?= $x['id_detail_krs'] ?>"
-                                                        type=" text" class="form-control" id="" placeholder="" readonly>
-                                                    <input name="x[]" value="<?= $detail_krs['smt']; ?>" type=" text"
-                                                        class="form-control" id="" placeholder="" readonly>
+                                                        type="hidden" class="form-control" id="" placeholder="">
+                                                    <input name="x[]" value="<?= $detail_krs['smt']; ?>" type="hidden"
+                                                        class="form-control" id="" placeholder="">
                                                 </td>
                                                 <td><?= $x['mata_kuliah'] ?>
                                                 <td><?= $x['sks'] ?>
@@ -197,7 +199,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-social btn-sm btn-info" type="submit">
-                                        <i class="fa fa-save"></i> Input KRS
+                                        <i class="fa fa-save"></i> Simpan KRS
                                     </button>
                                 </div>
                             </div>

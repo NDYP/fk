@@ -22,7 +22,7 @@ class Modul extends CI_Controller
     {
         $this->form_validation->set_rules('kode', 'kode', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!',
-            'is_unique' => 'Kode yang sama telah terdaftar'
+
         ]);
         $this->form_validation->set_rules('mata_kuliah', 'mata_kuliah', 'required|trim', [
             'required' =>
@@ -32,17 +32,11 @@ class Modul extends CI_Controller
             'required' =>
             'Tidak Boleh Kosong!'
         ]);
-        // $this->form_validation->set_rules('semester', 'semester', 'required|trim', [
-        //     'required' =>
-        //     'Tidak Boleh Kosong!'
-        // ]);
-        // $this->form_validation->set_rules('tahun', 'tahun', 'required|trim', [
-        //     'required' =>
-        //     'Tidak Boleh Kosong!'
-        // ]);
-        // $this->form_validation->set_rules('durasi', 'durasi', 'required|trim', [
-        //     'required' =>
-        //     'Tidak Boleh Kosong!'
+        $this->form_validation->set_rules('kurikulum', 'kurikulum', 'required|trim', [
+            'required' =>
+            'Tidak Boleh Kosong!'
+        ]);
+
         // ]);
         $this->form_validation->set_rules('prodi', 'prodi', 'required|trim', [
             'required' =>
@@ -75,6 +69,7 @@ class Modul extends CI_Controller
             $tahun = $this->input->post('tahun');
             $durasi = $this->input->post('durasi');
             $prodi = $this->input->post('prodi');
+            $kurikulum = $this->input->post('kurikulum');
 
 
             $data = array(
@@ -85,6 +80,7 @@ class Modul extends CI_Controller
                 'tahun' => $tahun,
                 'durasi' => $durasi,
                 'prodi' => $prodi,
+                'kurikulum' => $kurikulum,
 
             );
             // var_dump($data);
@@ -96,13 +92,7 @@ class Modul extends CI_Controller
         }
     }
 
-    // function get($id_modul)
-    // {
-    //     $data['prodi'] = $this->M_Modul->get($id_modul);
-    //     $url = $data['prodi']['id_fat'];
-    //     $url_slug = url_title(convert_accented_characters($url), 'dash', TRUE);
-    //     redirect(base_url('prodi/edit/' . $id_modul . '/'  . $url_slug));
-    // }
+
     function lihat($id_prodi)
     {
         // if ($this->session->flashdata('balik')) {
@@ -127,7 +117,7 @@ class Modul extends CI_Controller
     {
         $this->form_validation->set_rules('kode', 'kode', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!',
-            'is_unique' => 'Kode yang sama telah terdaftar'
+
         ]);
         $this->form_validation->set_rules('mata_kuliah', 'mata_kuliah', 'required|trim', [
             'required' =>
@@ -141,6 +131,10 @@ class Modul extends CI_Controller
             'required' =>
             'Tidak Boleh Kosong!'
         ]);
+        $this->form_validation->set_rules('kurikulum', 'kurikulum', 'required|trim', [
+            'required' =>
+            'Tidak Boleh Kosong!'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             $modul = $this->M_Modul->detail($id_modul);
@@ -151,7 +145,8 @@ class Modul extends CI_Controller
             $this->load->view('template/header', $data);
             $this->load->view('modul/edit', $data);
             $this->load->view('template/footer', $data);
-            // print_r($data['modul']);
+            // print_r($data['modul']['prodi']);
+            // print_r($data['prodi']);
         } else {
             $id_modul = $this->input->post('id_modul');
             $kode = $this->input->post('kode');
@@ -161,6 +156,7 @@ class Modul extends CI_Controller
             $tahun = $this->input->post('tahun');
             $durasi = $this->input->post('durasi');
             $prodi = $this->input->post('prodi');
+            $kurikulum = $this->input->post('kurikulum');
 
 
             $data = array(
@@ -171,6 +167,7 @@ class Modul extends CI_Controller
                 'tahun' => (!empty($tahun)) ? $tahun : NULL,
                 'durasi' => (!empty($durasi)) ? $durasi : NULL,
                 'prodi' => $prodi,
+                'kurikulum' => $kurikulum,
 
             );
             // var_dump($data);

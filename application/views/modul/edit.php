@@ -79,17 +79,14 @@
                             <div class="col-md-4">
                                 <label for="">Prodi</label>
                                 <select name="prodi" class="form-control select2" style="width: 100%;">
-                                    <option selected="selected" value="<?= set_value('prodi'); ?>">--Pilih--
-                                    </option>
+                                    <option value="" name="prodi">--Pilih--</option>
                                     <?php foreach ($prodi as $x) : ?>
-                                    <?php if ($modul['prodi'] == $prodi['id_prodi']) : ?>
-                                    <option value=<?= $x['id_prodi']; ?><?= set_select('prodi', $x['id_prodi']); ?>
-                                        selected>
+                                    <?php if ($modul['prodi'] == $x['id_prodi']) : ?>
+                                    <option name="prodi" value="<?= $x['id_prodi']; ?>" selected>
                                         <?= $x['program_studi']; ?></option>
                                     <?php else : ?>
-                                    <option value=<?= $x['id_prodi']; ?><?= set_select('prodi', $x['id_prodi']); ?>
-                                        selected>
-                                        <?= $x['program_studi']; ?></option>
+                                    <option name="prodi" value="<?= $x['id_prodi']; ?>"><?= $x['program_studi']; ?>
+                                    </option>
                                     <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
@@ -119,8 +116,14 @@
                                         class="form-control" id="" placeholder="isi ...">
                                 </div>
                             </div>
-                            <?php endif; ?>
 
+                            <?php endif; ?>
+                            <div class="col-md-2">
+                                <label for="">Kurikulum</label>
+                                <input name="kurikulum" value="<?= $modul['kurikulum']; ?>" type="text"
+                                    class="form-control" id="" placeholder="isi ...">
+                                <?= form_error('kurikulum', '<small class="text-danger pl-1">', '</small>'); ?>
+                            </div>
                         </div>
                     </div>
                     <div class="box-footer">

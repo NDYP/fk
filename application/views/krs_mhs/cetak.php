@@ -198,13 +198,13 @@
             </tr>
             <?php endforeach; ?>
             <tr font size="2">
-                <th colspan="6" style="border: 0;text-align: center;">Jumlah kredit yang dipogramkan semester ini</th>
-                <th width=10 colspan="1" style="border: 0;text-align: left;"> : <?= $detail_krs['sks_yad']; ?></th>
+                <th colspan="5" style="border: 0;text-align: center;">Jumlah kredit yang dipogramkan semester ini</th>
+                <th width=10 colspan="2" style="border: 0;text-align: left;"> : <?= $detail_krs['sks_yad']; ?></th>
             </tr>
             <tr font size="2">
-                <th colspan="6" style="border: 0;text-align: center;">Jumlah kredit yang dikumpulkan s/d semester lalu
+                <th colspan="5" style="border: 0;text-align: center;">Jumlah kredit yang dikumpulkan s/d semester lalu
                 </th>
-                <th colspan="1" style="border: 0; text-align: left;"> : <?= $detail_krs['sks_kumultatif'] ?: 0; ?></th>
+                <th colspan="2" style="border: 0; text-align: left;"> : <?= $detail_krs['sks_kumultatif'] ?: 0; ?></th>
             </tr>
         </table>
     </div>
@@ -217,7 +217,7 @@
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
             <td width=180>
-                <?= $detail_krs['ips'] ?: 0; ?>
+                <?= number_format($detail_krs['ips'] ?: 0, 2); ?>
             <td width="190" style="text-align: center;">
                 Palangkaraya, <?= tanggal() ?>
             </td>

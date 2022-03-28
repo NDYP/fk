@@ -212,24 +212,24 @@ class Mahasiswa extends CI_Controller
         $this->form_validation->set_rules('prodi', 'prodi', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('tempat_lahir', 'tempat_lahir', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('tanggal_lahir', 'tanggal_lahir', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
-        ]);
+        // $this->form_validation->set_rules('tempat_lahir', 'tempat_lahir', 'required|trim', [
+        //     'required' => 'Tidak Boleh Kosong!'
+        // ]);
+        // $this->form_validation->set_rules('tanggal_lahir', 'tanggal_lahir', 'required|trim', [
+        //     'required' => 'Tidak Boleh Kosong!'
+        // ]);
         $this->form_validation->set_rules('jenis_kelamin', 'jenis_kelamin', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('jalur_masuk', 'jenis_kelamin', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('tahun_masuk', 'jenis_kelamin', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
-        ]);
-        $this->form_validation->set_rules('ukt', 'jenis_kelamin', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
-        ]);
+        // $this->form_validation->set_rules('jalur_masuk', 'jenis_kelamin', 'required|trim', [
+        //     'required' => 'Tidak Boleh Kosong!'
+        // ]);
+        // $this->form_validation->set_rules('tahun_masuk', 'jenis_kelamin', 'required|trim', [
+        //     'required' => 'Tidak Boleh Kosong!'
+        // ]);
+        // $this->form_validation->set_rules('ukt', 'jenis_kelamin', 'required|trim', [
+        //     'required' => 'Tidak Boleh Kosong!'
+        // ]);
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Mahasiswa';
             $data['title2'] = 'Edit Data';
