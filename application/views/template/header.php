@@ -243,20 +243,30 @@ desired effect
                     <li class="header">Akademik</li>
                     <!-- Optionally, you can add icons to the links -->
                     <?php if ($this->session->userdata('id_admin')) : ?>
-                    <li class=""><a href="<?= base_url('dosen') ?>"><i class="fa fa-file"></i>
-                            <span>Dosen</span></a></li>
-                    <li class=""><a href="<?= base_url('registrasi') ?>"><i class="fa fa-print"></i>
+                    <li class=""><a href="<?= base_url('tahun_ajaran') ?>"><i class="fa fa-calendar"></i>
+                            <span>Tahun Ajaran</span></a></li>
+                    <li class=""><a href="<?= base_url('registrasi') ?>"><i class="fa fa-edit"></i>
                             <span>Registrasi</span></a></li>
                     <li class=""><a href="<?= base_url('krs') ?>"><i class="fa fa-print"></i>
                             <span>KRS </span></a></li>
-                    <li class=""><a href="<?= base_url('nilai_mhs') ?>"><i class="fa fa-print"></i>
+                    <li class=""><a href="<?= base_url('nilai_mhs') ?>"><i class="fa fa-pencil"></i>
                             <span>Nilai Akhir </span></a></li>
-                    <li class=""><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-users"></i>
-                            <span>Mahasiswa </span></a></li>
-                    <li class=""><a href="<?= base_url('pejabat_fakultas') ?>"><i class="fa fa-users"></i>
-                            <span>Pejabat Fakultas</span></a></li>
-                    <li class=""><a href="<?= base_url('tahun_ajaran') ?>"><i class="fa fa-calendar"></i>
-                            <span>Tahun Ajaran</span></a></li>
+                    <li class=""><a href="<?= base_url('khs') ?>"><i class="fa fa-print"></i>
+                            <span>KHS </span></a></li>
+
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-folder"></i> <span>Pengajuan</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="<?= base_url('transkrip') ?>"><i class="fa fa-file"></i>
+                                    <span>Transkrip Nilai</span></a></li>
+                            <li><a href="<?= base_url('surat_aktif') ?>"><i class="fa fa-book"></i>
+                                    <span>SUrat Aktif</span></a></li>
+                        </ul>
+                    </li>
                     <li class="treeview">
                         <a href="#"><i class="fa fa-book"></i> <span>Modul</span>
                             <span class="pull-right-container">
@@ -270,16 +280,23 @@ desired effect
                                     <span>Koordinator</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('prodi') ?>"><i class="fa fa-university"></i> <span>Program
-                                Studi</span></a></li>
-                    <li class=""><a href="<?= base_url('khs') ?>"><i class="fa fa-print"></i>
-                            <span>KHS </span></a></li>
-                    <li class=""><a href="<?= base_url('transkrip') ?>"><i class="fa fa-print"></i>
-                            <span>Transkrip </span></a></li>
-
-                    <li class=""><a href="<?= base_url('surat_aktif') ?>"><i class="fa fa-users"></i>
-                            <span>Surat Aktif </span></a></li>
-
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-users"></i> <span>Master</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="<?= base_url('mahasiswa') ?>"><i class="fa fa-user"></i>
+                                    <span>Mahasiswa</span></a></li>
+                            <li><a href="<?= base_url('dosen') ?>"><i class="fa fa-user"></i>
+                                    <span>Dosen</span></a></li>
+                            <li><a href="<?= base_url('pejabat_fakultas') ?>"><i class="fa fa-user"></i>
+                                    <span>Pejabat Fakultas</span></a></li>
+                            <li><a href="<?= base_url('prodi') ?>"><i class="fa fa-university"></i>
+                                    <span>Program Studi</span></a></li>
+                        </ul>
+                    </li>
 
 
                     <?php elseif ($this->session->userdata('id_dosen')) : ?>

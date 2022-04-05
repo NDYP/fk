@@ -34,10 +34,10 @@
                                     <?= $x['semester'] ?>
                                 </td>
                                 <td style="text-align: center;">
-                                    <?= $x['ipk'] ?>
+                                    <?= $x['ips'] ?>
                                 </td>
                                 <td style="text-align: center;">
-                                    <?= $x['semester'] ?>
+                                    <?= $x['ipk'] ?>
                                 </td>
                                 <td style="text-align: center;">
                                     <a href="<?= base_url('khs_mhs/cetak/' . $x['id_khs']); ?>"

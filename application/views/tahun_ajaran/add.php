@@ -7,13 +7,15 @@
                     <a href="<?= base_url('tahun_ajaran/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
+                    <br>
+                    <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Tahun Ajaran</label>
+                                    <label for="">Tahun Ajaran *</label>
                                     <input name="tahun_akademik" value="<?= set_value('tahun_akademik'); ?>" type="text"
                                         class="form-control" id="" placeholder="isi ...">
                                     <?= form_error('tahun_akademik', '<small class="text-danger pl-1">', '</small>'); ?>

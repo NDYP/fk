@@ -43,6 +43,24 @@ class Krs_list extends CI_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+    function tambah_list()
+    {
+        // if (isset($post['centang'])) {
+        $post = $this->input->post();
+        $data = array();
+        foreach ($post['id_modul'] as $key => $val) {
+            $data[] = array(
+                "id_modul"  => $post['id_modul'][$key],
+                "id_mahasiswa"  => $post['id_mahasiswa'][$key]
+            );
+        }
+        // var_dump($data);
+        $this->db->insert_batch('detail_krs', $data);
+        $this->session->set_flashdata('flash', 'ditambah, silahkan tekan tombol simpan untuk validasi modul');
+        // redirect($_SERVER['HTTP_REFERER']);
+        redirect('krs_mhs/tambah');
+        // }
+    }
     public function hapus($id_detail_krs)
     {
         $data = $this->db->get_where(

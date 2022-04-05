@@ -8,7 +8,7 @@
                 <div class="box-header">
                     <a href="<?= base_url('krs_mhs/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
-                        Tambah</a>
+                        Konsultasi</a>
                 </div>
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped" style="width: 100%;">
@@ -35,10 +35,15 @@
                                 </td>
                                 <td style="text-align: center;">
                                     <?= $x['status'] ?>
+                                    <?php if ($x['status'] == 'Revisi') : ?>
+                                    (<?= $x['catatan_revisi']; ?>)
+                                    <?php endif; ?>
                                 </td>
                                 <td style="text-align: center;">
+                                    <?php if ($x['status'] == 'Revisi') : ?>
                                     <a href="<?= base_url('krs_mhs/lihat/' . $x['id_krs']); ?>"
-                                        class="btn btn-social  btn-sm btn-info"><i class="fa fa-eye"></i> Lihat</a>
+                                        class="btn btn-social  btn-sm btn-info"><i class="fa fa-eye"></i> Revisi</a>
+                                    <?php endif; ?>
                                     <?php if ($x['status'] == 'Diterima') : ?>
                                     <a href="<?= base_url('krs_mhs/cetak/' . $x['id_krs']); ?>"
                                         class="btn btn-social btn-sm btn-info"><i class="fa fa-print"></i> Cetak</a>

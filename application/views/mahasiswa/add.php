@@ -7,6 +7,8 @@
                     <a href="<?= base_url('mahasiswa/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
+                    <br>
+                    <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="box-body">
@@ -16,7 +18,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">NIM</label>
+                                    <label for="">NIM *</label>
                                     <input name="nim" value="<?= set_value('nim'); ?>" type="text" class="form-control"
                                         id="" placeholder="">
                                     <?= form_error('nim', '<small class="text-danger pl-1">', '</small>'); ?>
@@ -31,7 +33,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Nama Lengkap</label>
+                                    <label for="">Nama Lengkap *</label>
                                     <input name="nama" value="<?= set_value('nama'); ?>" type=" text"
                                         class="form-control" id="" placeholder="">
                                     <?= form_error('nama', '<small class="text-danger pl-1">', '</small>'); ?>
@@ -82,7 +84,7 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="">Jenis Kelamin</label>
+                                    <label for="">Jenis Kelamin *</label>
                                     <select name="jenis_kelamin" class="form-control select2" style="width: 100%;">
                                         <option selected="selected" value="<?= set_value('jenis_kelamin'); ?>">--Pilih--
                                         </option>
@@ -151,7 +153,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Prodi</label>
+                                    <label for="">Prodi *</label>
                                     <select name="prodi" class="form-control select2" style="width: 100%;">
                                         <option selected="selected" value="<?= set_value('prodi'); ?>">--Pilih--
                                         </option>
@@ -205,7 +207,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Dosen PA</label>
+                                    <label for="">Dosen PA *</label>
                                     <select name="dosen_pa" class="form-control select2" style="width: 100%;">
                                         <option selected="selected" value="<?= set_value('dosen_pa'); ?>">--Pilih--
                                         </option>

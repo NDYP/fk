@@ -44,6 +44,9 @@
                                 </td>
                                 <td style="text-align: center;">
                                     <?= $x['status'] ?>
+                                    <?php if ($x['status'] == 'Revisi') : ?>
+                                    (<?= $x['catatan_revisi']; ?>)
+                                    <?php endif; ?>
                                 </td>
                                 <td style="text-align: center;">
                                     <a href="<?= base_url('konsultasi/lihat/' . $x['id_krs']); ?>"

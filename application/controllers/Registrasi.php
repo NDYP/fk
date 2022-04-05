@@ -37,12 +37,19 @@ class Registrasi extends CI_Controller
     function slip($id_registrasi)
     {
         $data = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
-        force_download('assets/berkas/mahasiswa/' . $data['slip'], NULL);
+        // force_download('assets/berkas/mahasiswa/' . $data['slip'], NULL);
+        // fopen("base_url()/assets/berkas/mahasiswa/$data", "");
+        $tofile = realpath("assets/berkas/mahasiswa/" . $data);
+        header('Content-Type: application/pdf');
+        readfile($tofile);
     }
     function bukti($id_registrasi)
     {
         $data = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
-        force_download('assets/berkas/mahasiswa/' . $data['regis_univ'], NULL);
+        // force_download('assets/berkas/mahasiswa/' . $data['regis_univ'], NULL);
+        $tofile = realpath("assets/berkas/mahasiswa/" . $data);
+        header('Content-Type: application/pdf');
+        readfile($tofile);
     }
     function terima($id_registrasi)
     {
@@ -55,8 +62,10 @@ class Registrasi extends CI_Controller
     }
     function tolak($id_registrasi)
     {
+        $catatan_revisi = $this->input->post('catatan_revisi');
         $data = [
-            'status' => 'Ditolak'
+            'status' => 'Ditolak',
+            'catatan_revisi' => $catatan_revisi
         ];
         $regis = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
         $this->db->update('registrasi', $data, ['id_registrasi' => $id_registrasi]);

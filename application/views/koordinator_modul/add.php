@@ -7,13 +7,15 @@
                     <a href="<?= $_SERVER['HTTP_REFERER']; ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
+                    <br>
+                    <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
                 <form action="" method="POST">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Modul</label>
+                                    <label for="exampleInputEmail1">Modul *</label>
                                     <select name="id_modul" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--
@@ -31,7 +33,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Ketua</label>
+                                    <label for="exampleInputEmail1">Ketua *</label>
                                     <select name="id_dosen" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--
@@ -49,7 +51,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Sekretaris</label>
+                                    <label for="exampleInputEmail1">Sekretaris *</label>
                                     <select name="id_dosen2" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--
@@ -70,7 +72,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Tahun Akademik</label>
+                                    <label for="exampleInputEmail1">Tahun Akademik *</label>
                                     <select name="id_tahun_ajaran" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--

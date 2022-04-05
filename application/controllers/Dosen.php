@@ -20,15 +20,19 @@ class Dosen extends CI_Controller
     }
     function tambah()
     {
-        $this->form_validation->set_rules('nip', 'nip', 'required|trim|is_unique[dosen.nip]', [
+        $this->form_validation->set_rules('nip', 'nip', 'numeric|required|trim|is_unique[dosen.nip]|min_length[18]|', [
             'required' => 'Tidak Boleh Kosong!',
-            'is_unique' => 'NIP telah terdaftar'
+            'is_unique' => 'NIP telah terdaftar',
+            'min_length' => 'Minimal 18 digit',
+            'numeric' => 'Harus angka',
         ]);
         $this->form_validation->set_rules('nama', 'nama', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('email', 'email', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
+        $this->form_validation->set_rules('email', 'email', 'valid_email|required|trim', [
+            'valid_email' =>
+            'domain email tidak valid',
+            'required' => 'Tidak Boleh Kosong!',
         ]);
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Dosen';

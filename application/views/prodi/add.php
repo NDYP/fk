@@ -7,13 +7,15 @@
                     <a href="<?= base_url('prodi/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
+                    <br>
+                    <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
                 <form action="" method="POST">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Program Studi</label>
+                                    <label for="exampleInputEmail1">Program Studi *</label>
                                     <input name="program_studi" value="<?= set_value('program_studi'); ?>" type=" text"
                                         class="form-control" id="exampleInputEmail1" placeholder="isi ...">
                                     <?= form_error('program_studi', '<small class="text-danger pl-1">', '</small>'); ?>
@@ -21,7 +23,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Kaprodi</label>
+                                    <label for="exampleInputEmail1">Kaprodi *</label>
                                     <select name="kaprodi" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--

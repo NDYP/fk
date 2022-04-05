@@ -7,7 +7,7 @@ class M_Krs_mhs extends CI_Model
     {
         $query = $this->db->select('krs.id_krs, krs.status, krs.id_mahasiswa,krs.id_registrasi, krs.semester as smt,
         mahasiswa.nama,mahasiswa.nim, dosen.nama as dosen_pa, dosen.nip,tahun_ajaran.tahun_akademik,
-        tahun_ajaran.semester')
+        tahun_ajaran.semester, krs.catatan_revisi')
             ->from('krs') //urut berdasarkan id
             ->join('mahasiswa', 'krs.id_mahasiswa=mahasiswa.id_mahasiswa', 'left')
             ->join('dosen', 'mahasiswa.dosen_pa=dosen.id_dosen', 'left')

@@ -8,7 +8,7 @@
                 <div class="box-header">
                     <a data-toggle="modal" data-target="#modal-default" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
-                        Tambah</a>
+                        Pengajuan</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -54,7 +54,13 @@
                                 </td>
 
                                 <td align="center">
-                                    <?= $x['status'] > 1 ? 'Disetujui' : 'Pengajuan' ?>
+                                    <?php if ($x['status'] == 0) : ?>
+                                    Pengajuan
+                                    <?php elseif ($x['status'] == 1) : ?>
+                                    Revisi (<?= $x['status'] > 1 ?: $x['catatan_revisi'] ?>)
+                                    <?php elseif ($x['status'] == 2) : ?>
+                                    Diterima
+                                    <?php endif; ?>
                                 </td>
                                 <td style="text-align: center;">
                                     <?php if ($x['status'] == 2) : ?>
@@ -78,7 +84,7 @@
 <!-- /.content -->
 
 <div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -87,7 +93,7 @@
             </div>
             <form action="<?= base_url('transkrip_mhs/tambah'); ?>" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Nama</label>
@@ -133,21 +139,38 @@
                                 <label for="">IPK</label>
                                 <input name="ipk" value="<?= $ipk; ?>" type="text" class="form-control" id=""
                                     placeholder="" readonly>
-                                <input name="sksn" value="<?= $sksn; ?>" type="hidden" class="form-control" id=""
+                                <input name="sksn" value="<?= $sksn; ?>" type="text" class="form-control" id=""
                                     placeholder="">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Selesai pada</label>
+                                <label for="">Lulus pada * (sesuai ijazah)</label>
                                 <div class="input-group date">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="text" class="form-control pull-right" name="selesai_pada"
                                         value="<?= set_value('selesai_pada'); ?>" id="datepicker" required>
+                                    <input name="ipk" value="<?= $ipk; ?>" type="hidden" class="form-control" id=""
+                                        placeholder="" readonly>
+                                    <input name="sksn" value="<?= $sksn; ?>" type="hidden" class="form-control" id=""
+                                        placeholder="">
+                                    <input name="sks" value="<?= $list['sks']; ?>" type="hidden" class="form-control"
+                                        id="" placeholder="" readonly>
+                                    <input name="jenjang"
+                                        value="<?= $list['prodi'] < 4 ? 'Sarjana / S1' : 'Dokter Umum'; ?>"
+                                        type="hidden" class="form-control" id="" placeholder="" readonly>
+                                    <input name="prodi" value="<?= $list['program_studi']; ?>" type="hidden"
+                                        class="form-control" id="" placeholder="" readonly>
+                                    <input name="nim" value="<?= $list['nim']; ?>" type="hidden" class="form-control"
+                                        id="" placeholder="" readonly>
+                                    <input name="nama" value="<?= $list['nama']; ?>" type="hidden" class="form-control"
+                                        id="" placeholder="" readonly>
+
+
                                 </div>
                             </div>
                         </div>
@@ -156,7 +179,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Pengajuan</button>
                 </div>
             </form>
         </div>

@@ -199,7 +199,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-social btn-sm btn-info" type="submit">
-                                        <i class="fa fa-save"></i> Simpan KRS
+                                        <i class="fa fa-save"></i> Pengajuan
                                     </button>
                                 </div>
                             </div>

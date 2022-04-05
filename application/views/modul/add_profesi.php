@@ -7,13 +7,15 @@
                     <a href="<?= $_SERVER['HTTP_REFERER']; ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
+                    <br>
+                    <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Kode MK</label>
+                                    <label for="">Kode MK *</label>
                                     <input name="kode" value="<?= set_value('kode'); ?>" type="text"
                                         class="form-control" id="" placeholder="isi ...">
                                     <?= form_error('kode', '<small class="text-danger pl-1">', '</small>'); ?>
@@ -21,14 +23,14 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">Mata Kuliah</label>
+                                    <label for="">Mata Kuliah *</label>
                                     <input name="mata_kuliah" value="<?= set_value('mata_kuliah'); ?>" type="text"
                                         class="form-control" id="" placeholder="isi ...">
                                     <?= form_error('mata_kuliah', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <label for="">SKS</label>
+                                <label for="">SKS *</label>
                                 <input name="sks" value="<?= set_value('sks'); ?>" type="text" class="form-control"
                                     id="" placeholder="isi ...">
                                 <?= form_error('sks', '<small class="text-danger pl-1">', '</small>'); ?>
@@ -37,7 +39,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="">Prodi</label>
+                                <label for="">Prodi *</label>
                                 <select name="prodi" class="form-control select2" style="width: 100%;">
                                     <option selected="selected" value="<?= set_value('prodi'); ?>">--Pilih--
                                     </option>
@@ -70,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <label for="">Kurikulum</label>
+                                <label for="">Kurikulum *</label>
                                 <input name="kurikulum" value="<?= set_value('kurikulum'); ?>" type="text"
                                     class="form-control" id="" placeholder="isi ...">
                                 <?= form_error('kurikulum', '<small class="text-danger pl-1">', '</small>'); ?>

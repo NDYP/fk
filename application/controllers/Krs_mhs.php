@@ -25,9 +25,10 @@ class Krs_mhs extends CI_Controller
         $this->form_validation->set_rules('id_mahasiswa', 'id_mahasiswa', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('id_registrasi', 'id_registrasi', 'required|trim', [
+        $this->form_validation->set_rules('id_registrasi', 'id_registrasi', 'required|is_unique[krs.id_registrasi]', [
             'required' =>
-            'Tidak Boleh Kosong!'
+            'Tidak Boleh Kosong!',
+            'is_unique' => 'KRS sudah ada'
         ]);
         $this->form_validation->set_rules('semester', 'semester', 'required|trim', [
             'required' =>
@@ -92,7 +93,7 @@ class Krs_mhs extends CI_Controller
                     "semester" => $semester[$key],
                 );
             }
-            var_dump($result);
+            // var_dump($data);
             $this->db->update_batch('detail_krs', $result, 'id_detail_krs');
             $this->session->set_flashdata('flash', 'ditambah');
             redirect('krs_mhs');

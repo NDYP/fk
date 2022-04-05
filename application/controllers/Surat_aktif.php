@@ -13,7 +13,7 @@ class Surat_aktif extends CI_Controller
     public function index()
     {
         $data['title'] = 'Surat Aktif';
-        $data['title2'] = 'Index Data';
+        $data['title2'] = 'Index Pengajuan';
         $data['surat_aktif'] = $this->M_Surat_aktif_mhs->index2();
         $this->load->view('template/header', $data);
         $this->load->view('surat_aktif/konten', $data);

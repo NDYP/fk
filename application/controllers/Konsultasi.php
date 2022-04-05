@@ -54,9 +54,10 @@ class Konsultasi extends CI_Controller
     {
         $data['title'] = 'Konsultasi';
         $data['title2'] = 'Detail KRS';
-
+        $catatan_revisi = $this->input->post('catatan_revisi');
         $data = array(
             'status' => 'Revisi',
+            'catatan_revisi' => $catatan_revisi,
         );
         $this->M_Krs_mhs->update('krs', $data, array('id_krs' => $id_krs));
         redirect('konsultasi');

@@ -33,8 +33,10 @@ class Transkrip extends CI_Controller
     }
     function tolak($id_transkrip)
     {
+        $catatan_revisi = $this->input->post('catatan_revisi');
         $data = array(
             'status' => '1',
+            'catatan_revisi' => $catatan_revisi,
         );
         $this->M_Transkrip->update('transkrip', $data, array('id_transkrip' => $id_transkrip));
         $this->session->set_flashdata('flash', 'ditambah');

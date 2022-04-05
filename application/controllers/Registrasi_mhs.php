@@ -25,9 +25,11 @@ class Registrasi_mhs extends CI_Controller
         $this->form_validation->set_rules('id_mahasiswa', 'id_mahasiswa', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('id_tahun_ajaran', 'id_tahun_ajaran', 'required|trim', [
+        $this->form_validation->set_rules('id_tahun_ajaran', 'id_tahun_ajaran', 'required|trim|is_unique[registrasi.id_tahun_ajaran]', [
             'required' =>
-            'Tidak Boleh Kosong!'
+            'Tidak Boleh Kosong!',
+            'is_unique' => 'Registrasi sudah ada'
+
         ]);
         if (empty($_FILES['slip']['name'])) {
             $this->form_validation->set_rules('slip', 'slip', 'required|trim', [

@@ -21,8 +21,7 @@ class Pejabat_fakultas extends CI_Controller
     function tambah()
     {
         $this->form_validation->set_rules('id_dosen', 'id_dosen', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!',
-            'is_unique' => 'Nama yang sama telah terdaftar'
+            'required' => 'Tidak Boleh Kosong!'
         ]);
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim|is_unique[dekanat.jabatan]', [
             'required' =>

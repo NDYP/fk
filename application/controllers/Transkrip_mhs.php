@@ -17,15 +17,17 @@ class Transkrip_mhs extends CI_Controller
 
         $id_mahasiswa = $this->session->userdata('id_mahasiswa');
         $data['list'] = $this->M_Transkrip_mhs->krs_get($id_mahasiswa);
-        $data['sks'] = $data['list']['sks'] == NULL ?: 0;
-        $data['nilai'] = $data['list']['nilai'] == NULL ?: 0;
-        $data['sksn'] = number_format($data['nilai'] * $data['sks'], 2) == NULL ?: 0;
-        $data['ipk'] = number_format($data['sksn'] / $data['sks'], 2) == NULL ?: 0;
+        $data['sks'] = $data['list']['sks'];
+        // $data['nilai'] = $data['list']['nilai'];
+        $data['sksn'] = $data['list']['sksn'];
+        $data['ipk'] = number_format($data['list']['sksn'] / $data['list']['sks'], 2);
         $data['transkrip'] = $this->M_Transkrip_mhs->index();
+        // var_dump($data['sksn']);
+        // var_dump($data['sks']);
         $this->load->view('template/header', $data);
         $this->load->view('transkrip_mhs/konten', $data);
         $this->load->view('template/footer', $data);
-        // var_dump($data['list']);
+
         // var_dump($data['sksn']);
     }
     function tambah()

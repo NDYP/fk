@@ -10,8 +10,12 @@
                     <a href="<?= base_url('konsultasi/terima/' . $detail_krs['id_krs']) ?>"
                         class="btn btn-social btn btn-sm btn-success"><i class="fa fa-check"></i>
                         Approve KRS</a>
-                    <a href="<?= base_url('konsultasi/revisi/' . $detail_krs['id_krs']) ?>"
+                    <!-- <a href="<?= base_url('konsultasi/revisi/' . $detail_krs['id_krs']) ?>"
                         class="btn btn-social btn btn-sm bg-red"><i class="fa fa-close"></i>
+                        Revisi KRS</a> -->
+                    <a data-no="<?= $detail_krs['id_krs']; ?>" data-toggle="modal"
+                        data-target="#modal-no<?= $detail_krs['id_krs']; ?>"
+                        class="btn btn-social btn-sm btn-success"><i class="fa fa-eye"></i>
                         Revisi KRS</a>
                 </div>
                 <div class="box-body bg-identitas">
@@ -193,3 +197,35 @@
 
 </section>
 <!-- /.content -->
+
+<div class="modal fade" id="modal-no<?= $detail_krs['id_krs']; ?>">
+    <div class="modal-dialog">
+        <form name="myform" onsubmit="return val()" enctype="multipart/form-data" role="form"
+            action="<?= base_url('konsultasi/revisi/' . $detail_krs['id_krs']); ?>" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Alasan Penolakan</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <input type="hidden" value="<?= $detail_krs['id_krs']; ?>" name="id_krs" id=""
+                            class="form-control input-sm">
+                        <div class="col-xs-12">
+                            <label for="exampleInputEmail1">Catatan</label>
+                            <input type="text" name="catatan_revisi" id="" class="form-control input-sm" required>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Keluar</button>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /.modal-content -->
+</div>

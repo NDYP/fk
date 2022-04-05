@@ -8,7 +8,7 @@
                 <div class="box-header">
                     <a href="<?= base_url('surat_aktif_mhs/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
-                        Tambah</a>
+                        Pengajuan</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -23,7 +23,7 @@
                                 <th style="text-align: center;">Semester</th>
                                 <th style="text-align: center;">Status</th>
                                 <!-- <th style="text-align: center;">Pembimbing Akademik</th> -->
-                                <th style="text-align: center;">Aksi</th>
+                                <th style="text-align: center;">Cetak</th>
                             </tr>
                         </thead>
                         <tbody>

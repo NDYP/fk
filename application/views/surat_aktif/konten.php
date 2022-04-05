@@ -5,11 +5,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
-                <div class="box-header">
-                    <a href="<?= base_url('surat_aktif_mhs/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
-                            class="fa fa-user-plus"></i>
-                        Tambah</a>
-                </div>
+
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -23,7 +19,7 @@
                                 <th style="text-align: center;">Semester</th>
                                 <th style="text-align: center;">Status</th>
                                 <!-- <th style="text-align: center;">Pembimbing Akademik</th> -->
-                                <th style="text-align: center;">Aksi</th>
+                                <th style="text-align: center;">Cetak</th>
                             </tr>
                         </thead>
                         <tbody>

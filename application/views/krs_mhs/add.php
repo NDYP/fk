@@ -1,5 +1,7 @@
 <!-- Main content -->
 <section class="content container-fluid">
+    <?= $this->session->flashdata('message'); ?>
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
     <div class="row">
         <div class="col-xs-12">
             <div class="box box-default">
@@ -198,7 +200,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-social btn-sm btn-info" type="submit">
-                                        <i class="fa fa-save"></i> Simpan KRS
+                                        <i class="fa fa-save"></i> Pengajuan
                                     </button>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@
                 <div class="box-header">
                     <a href="<?= base_url('registrasi_mhs/tambah') ?>" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
-                        Tambah</a>
+                        Pengajuan</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -30,7 +30,6 @@
                                 <td style="text-align: center;">
                                     <?= $no++ ?>
                                 </td>
-
                                 <td style="text-align: center;"><?= $x['va'] ?>
                                 </td>
                                 </td>
@@ -47,6 +46,9 @@
                                     </a>
                                 </td>
                                 <td style="text-align: center;"><?= $x['status'] ?>
+                                    <?php if ($x['status'] == 'Ditolak') : ?>
+                                    (<?= $x['catatan_revisi']; ?>)
+                                    <?php endif; ?>
                                 </td>
                                 <td style="text-align: center;">
                                     <?php if ($x['status'] == 'Ditolak') : ?>

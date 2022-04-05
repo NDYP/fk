@@ -6,7 +6,7 @@ class M_Registrasi_mhs extends CI_Model
     public function index()
     {
         $query = $this->db->select('r.id_registrasi,r.id_mahasiswa, r.id_tahun_ajaran, r.slip, r.regis_univ, r.va, r.status,
-        m.nim, m.nama, t.tahun_akademik, t.semester, t.status as status_semester')
+        m.nim, m.nama, t.tahun_akademik, t.semester, t.status as status_semester, r.catatan_revisi')
             ->from('registrasi r') //urut berdasarkan id
             ->join('mahasiswa m', 'r.id_mahasiswa=m.id_mahasiswa', 'left')
             ->join('tahun_ajaran t', 'r.id_tahun_ajaran=t.id_tahun_ajaran', 'left')

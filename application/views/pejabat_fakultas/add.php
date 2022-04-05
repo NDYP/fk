@@ -7,13 +7,15 @@
                     <a href="<?= base_url('pejabat_fakultas/index') ?>" class="btn btn-social btn-sm btn-warning"><span
                             class="fa fa-list"></span>
                         Kembali</a>
+                    <br>
+                    <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
                 <form action="" method="POST">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Jabatan</label>
+                                    <label for="exampleInputEmail1">Jabatan *</label>
                                     <select name="jabatan" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--
@@ -31,7 +33,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Dosen</label>
+                                    <label for="exampleInputEmail1">Dosen *</label>
                                     <select name="id_dosen" class="form-control select2" style="width: 100%;">
                                         <option value="">
                                             --Pilih--
