@@ -53,12 +53,18 @@
                                     <?= $x['smt'] ?>
                                 </td>
                                 <td align="center">
-                                    <?= $x['status'] > 1 ? 'Disetujui' : 'Pengajuan' ?>
+                                    <?php if ($x['status'] == 0) : ?>
+                                    Pengajuan
+                                    <?php elseif ($x['status'] == 1) : ?>
+                                    Ditolak (<?= $x['catatan_revisi'] ?>)
+                                    <?php elseif ($x['status'] == 2) : ?>
+                                    Diterima
+                                    <?php endif; ?>
                                 </td>
                                 <td style="text-align: center;">
                                     <?php if ($x['status'] == 2) : ?>
                                     <a href="<?= base_url('surat_aktif_mhs/cetak/' . $x['id_surat_aktif']); ?>"
-                                        class="btn btn-social-icon btn-success"><i class="fa fa-print"></i></a>
+                                        class="btn btn-social btn-sm btn-success"><i class="fa fa-print"></i> Cetak</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>

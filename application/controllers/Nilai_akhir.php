@@ -53,18 +53,41 @@ class Nilai_akhir extends CI_Controller
     }
     function input()
     {
-        $id_detail_krs = $this->input->post('id_detail_krs');
-        $id_modul = $this->input->post('id_modul');
-        $id_nilai = $this->input->post('id_nilai');
-        $penginput = $this->session->userdata('nama');
+        $this->form_validation->set_rules('id_nilai[]', 'id_nilai[]', 'required|trim', [
+            'required' => 'Tidak Boleh Kosong!'
+        ]);
+        if ($this->form_validation->run() == FALSE) {
+            $id_modul = $this->input->post('id_modul');
+            // redirect(base_url() . "nilai_mhs/detail/" . $id_modul);
+            $this->detail($id_modul);
+        } else {
+            // $id_detail_krs = $this->input->post('id_detail_krs');
+            // $id_modul = $this->input->post('id_modul');
+            // $id_nilai = $this->input->post('id_nilai');
+            // $penginput = $this->session->userdata('nama');
 
-        $data = array(
-            'id_nilai' => $id_nilai,
-            'penginput' => $penginput,
-        );
-        $data['mahasiswa'] = $this->M_Nilai_akhir->update('detail_krs', $data, array('id_detail_krs' => $id_detail_krs));
-        $this->session->set_flashdata('flash', 'diubah');
-        redirect(base_url() . "nilai_akhir/detail/" . $id_modul);
+            // $data = array(
+            //     'id_nilai' => $id_nilai,
+            //     'penginput' => $penginput,
+            // );
+            $post = $this->input->post();
+            $id_modul = $this->input->post('id_modul');
+            $penginput = $this->session->userdata('nama');
+            $data = array();
+            $id_detail_krs = $this->input->post('id_detail_krs');
+            foreach ($post['id_detail_krs'] as $key => $val) {
+                $data[] = array(
+                    "id_detail_krs"  => $post['id_detail_krs'][$key],
+                    "id_nilai"  => $post['id_nilai'][$key],
+                    "penginput"  => $penginput
+                );
+            }
+            // var_dump($data);
+            $data['mahasiswa'] = $this->db->update_batch('detail_krs', $data, "id_detail_krs");
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect(base_url() . "nilai_mhs/detail/" . $id_modul);
+            $this->detail($id_modul);
+        }
     }
     function cetak($id_modul)
     {

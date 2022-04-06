@@ -21,7 +21,7 @@ class M_Surat_aktif_mhs extends CI_Model
     public function index2()
     {
         $query = $this->db->select('s.id_surat_aktif, s.id_mahasiswa, s.semester as smt, s.status,
-        t.tahun_akademik,t.semester, m.nama, m.nim, m.foto')
+        t.tahun_akademik,t.semester, m.nama, m.nim, m.foto, s.catatan_revisi')
             ->from('surat_aktif s') //urut berdasarkan id
             ->join('registrasi r', 's.id_mahasiswa=r.id_mahasiswa', 'left')
             ->join('mahasiswa m', 'r.id_mahasiswa=m.id_mahasiswa', 'left')

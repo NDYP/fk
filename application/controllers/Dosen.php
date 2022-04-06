@@ -20,7 +20,7 @@ class Dosen extends CI_Controller
     }
     function tambah()
     {
-        $this->form_validation->set_rules('nip', 'nip', 'numeric|required|trim|is_unique[dosen.nip]|min_length[18]|', [
+        $this->form_validation->set_rules('nip', 'nip', 'numeric|required|trim|is_unique[dosen.nip]|min_length[18]', [
             'required' => 'Tidak Boleh Kosong!',
             'is_unique' => 'NIP telah terdaftar',
             'min_length' => 'Minimal 18 digit',

@@ -32,8 +32,10 @@ class Surat_aktif extends CI_Controller
     }
     function tolak($id_surat_aktif)
     {
+        $catatan_revisi = $this->input->post('catatan_revisi');
         $data = array(
             'status' => '1',
+            'catatan_revisi' => $catatan_revisi,
         );
         $this->M_Surat_aktif_mhs->update('surat_aktif', $data, array('id_surat_aktif' => $id_surat_aktif));
         $this->session->set_flashdata('flash', 'ditambah');
