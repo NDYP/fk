@@ -19,6 +19,17 @@ class M_Krs_mhs extends CI_Model
             ->result_array(); //ditampilkan dalam bentuk array
         return $query;
     }
+    public function krs()
+    {
+        $query = $this->db->select('*')
+            ->from('modul') //urut berdasarkan id
+            ->where('prodi', $this->session->userdata('prodi'))
+            ->group_by('kurikulum')
+            ->order_by('modul.id_modul', 'desc')
+            ->get()
+            ->result_array(); //ditampilkan dalam bentuk array
+        return $query;
+    }
     public function get($id_krs)
     {
         $query = $this->db->select('tahun_ajaran.id_tahun_ajaran,krs.id_krs, krs.id_mahasiswa,krs.id_registrasi, krs.semester as smt,
@@ -67,15 +78,28 @@ class M_Krs_mhs extends CI_Model
     public function sks_kumul()
     {
         $query = $this->db->select('SUM(m.sks) as sks')
-            ->from('krs k') //urut berdasarkan id
-            ->join('detail_krs d', 'k.semester=d.semester', 'left')
-            ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
-            // ->where('n.keterangan', 'L')
-            ->where('k.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
+            ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->where('d.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
+            // ->where('d.semester', $semester)
+            ->where('n.keterangan', 'L')
             ->get()
             ->row_array();
         return $query;
+        // $query = $this->db->select('SUM(m.sks) as sks')
+        //     ->from('krs k') //urut berdasarkan id
+        //     ->join('detail_krs d', 'k.semester=d.semester', 'left')
+        //     ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+        //     ->join('modul m', 'd.id_modul=m.id_modul', 'left')
+        //     // ->where('n.keterangan', 'L')
+        //     ->where('k.id_mahasiswa', $this->session->userdata('id_mahasiswa'))
+        //     ->get()
+        //     ->row_array();
+        // return $query;
     }
     public function sks_yad()
     {

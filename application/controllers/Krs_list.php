@@ -7,7 +7,6 @@ class Krs_list extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_Krs_mhs');
-        $this->load->model('M_Krs_mhs');
         $this->load->model('M_Modul');
         $this->load->model('M_Tahun_ajaran');
     }
@@ -19,16 +18,13 @@ class Krs_list extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Pilih Modul KRS';
             $data['title2'] = 'Add Data';
-            $data['modul'] = $this->db->get_where(
-                'modul',
-                array('prodi' => $this->session->userdata('prodi'))
-            )->result_array();
+            $data['modul'] = $this->M_Krs_mhs->krs();
             $this->load->view('template/header', $data);
-            if ($this->session->userdata('prodi') == 4) {
-                $this->load->view('krs_list/add_profesi', $data);
-            } elseif ($this->session->userdata('prodi') == 3) {
-                $this->load->view('krs_list/add_pendidikan', $data);
-            }
+            // if ($this->session->userdata('prodi') == 4) {
+            //     $this->load->view('krs_list/add_profesi', $data);
+            // } elseif ($this->session->userdata('prodi') == 3) {
+            $this->load->view('krs_list/kurikulum', $data);
+            // }
             $this->load->view('template/footer', $data);
         } else {
             $id_modul = $this->input->post('id_modul');
@@ -42,6 +38,22 @@ class Krs_list extends CI_Controller
             $this->session->set_flashdata('flash', 'ditambah, silahkan tekan tombol simpan untuk validasi modul');
             redirect($_SERVER['HTTP_REFERER']);
         }
+    }
+    public function lihat($kurikulum)
+    {
+        $data['title'] = 'Pilih Modul KRS';
+        $data['title2'] = 'Add Data';
+        $data['modul'] = $this->db->get_where(
+            'modul',
+            array('kurikulum' => $kurikulum, 'prodi' => $this->session->userdata('prodi'))
+        )->result_array();
+        $this->load->view('template/header', $data);
+        if ($this->session->userdata('prodi') == 4) {
+            $this->load->view('krs_list/add_profesi', $data);
+        } elseif ($this->session->userdata('prodi') == 3) {
+            $this->load->view('krs_list/add_pendidikan', $data);
+        }
+        $this->load->view('template/footer', $data);
     }
     function tambah_list()
     {
