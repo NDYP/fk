@@ -6,7 +6,7 @@
         <?php foreach ($prodi_aktif as $x) : ?>
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-aqua">
+            <div class="small-box bg-green">
                 <div class="inner">
                     <h3><?= $x['jumlah'] ?></h3>
                     <p>Mahasiswa Aktif</p>
@@ -23,7 +23,7 @@
         <?php foreach ($prodi_nonaktif as $x) : ?>
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-aqua">
+            <div class="small-box bg-green">
                 <div class="inner">
                     <h3><?= $x['jumlah'] ?></h3>
                     <p>Mahasiswa Tidak Aktif</p>
@@ -40,7 +40,7 @@
         <?php foreach ($prodi_ipk as $x) : ?>
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-aqua">
+            <div class="small-box bg-green">
                 <div class="inner">
                     <h3><?= number_format($x['ipk_highest'], 2) ?> - <?= number_format($x['ipk_lowest'], 2) ?></h3>
                     <p>IPK (Tertinggi Terendah)</p>
@@ -57,11 +57,11 @@
         <?php foreach ($prodi_masa_studi as $x) : ?>
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
-            <div class="small-box bg-aqua">
+            <div class="small-box bg-green">
                 <div class="inner">
-                    <h3><?= number_format($x['jumlah'] / 2, 2) ?></h3>
-                    <p>Masa Studi (Tahun)</p>
+                    <h3>Masa Studi</h3>
                     <p><?= $x['program_studi'] ?></p>
+                    <p>(Tecepat Terlama)</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-ios-people-outline"></i>

@@ -44,7 +44,7 @@ class Login extends CI_Controller
                     'foto' => $data['foto'],
                 ];
                 $this->session->set_userdata($a);
-                redirect('mahasiswa/index', 'refresh');
+                redirect('beranda/index', 'refresh');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah</div>');
                 redirect('login/index');

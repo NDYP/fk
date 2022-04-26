@@ -97,7 +97,7 @@ class M_Beranda extends CI_Model
     public function prodi_masa_studi()
     {
 
-        $query = $this->db->select('COUNT(khs.id_khs) as jumlah,prodi.program_studi, prodi.id_prodi')
+        $query = $this->db->select('COUNT(khs.id_khs) as jumlah,prodi.program_studi, prodi.id_prodi, mahasiswa.*,')
             ->from('khs') //urut berdasarkan id
             ->join('mahasiswa', 'mahasiswa.id_mahasiswa=khs.id_mahasiswa', 'left')
             ->join('prodi', 'mahasiswa.prodi=prodi.id_prodi', 'left')
@@ -110,7 +110,7 @@ class M_Beranda extends CI_Model
     public function list_masa_studi($id_prodi)
     {
 
-        $query = $this->db->select('COUNT(khs.id_khs) as jumlah,mahasiswa.id_mahasiswa,')
+        $query = $this->db->select('COUNT(khs.id_khs) as jumlah, mahasiswa.*,')
             ->from('khs') //urut berdasarkan id
             ->join('mahasiswa', 'mahasiswa.id_mahasiswa=khs.id_mahasiswa', 'left')
             ->where('mahasiswa.prodi', $id_prodi)

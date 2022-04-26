@@ -19,9 +19,11 @@ class Tahun_ajaran extends CI_Controller
     }
     function tambah()
     {
-        $this->form_validation->set_rules('tahun_akademik', 'tahun_akademik', 'required|trim', [
-            'required' => 'Tidak Boleh Kosong!'
+        $this->form_validation->set_rules('tahun_akademik', 'tahun_akademik', 'required|trim|is_unique[tahun_ajaran.tahun_akademik]', [
+            'required' => 'Tidak Boleh Kosong!',
+            'is_unique' => 'Tahun akademik telah terdaftar'
         ]);
+
         // $this->form_validation->set_rules('tahun_akademik', 'tahun_akademik', 'required|trim', [
         //     'required' => 'Tidak Boleh Kosong!'
         // ]);

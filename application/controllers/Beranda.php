@@ -29,28 +29,55 @@ class Beranda extends CI_Controller
     }
     public function cetak_aktif($id_prodi)
     {
-        $th = $this->db->get_where('tahun_ajaran', array('status' => '1'))->row_array();
-        $th = $th['id_tahun_ajaran'];
+        $data['tahun_ajaran'] = $this->db->get_where('tahun_ajaran', array('status' => '1'))->row_array();
+        $th =  $data['tahun_ajaran']['id_tahun_ajaran'];
+        $data['prodi'] = $this->db->get_where('prodi', array('id_prodi' => $id_prodi))->row_array();
+
         $data['aktif'] = $this->M_Beranda->aktif($th, $id_prodi);
-        var_dump($data);
+        $this->load->library('Pdf');
+        $this->pdf->setPaper('legal', 'potrait');
+        $this->pdf->set_option('isRemoteEnabled', true);
+        // $this->pdf->render();
+        // $this->pdf->filename = $filename . '.pdf';
+        $this->pdf->load_view('beranda/aktif', $data);
     }
     public function cetak_nonaktif($id_prodi)
     {
-        $th = $this->db->get_where('tahun_ajaran', array('status' => '1'))->row_array();
-        $th = $th['id_tahun_ajaran'];
+        $data['tahun_ajaran'] = $this->db->get_where('tahun_ajaran', array('status' => '1'))->row_array();
+        $th =  $data['tahun_ajaran']['id_tahun_ajaran'];
+        $data['prodi'] = $this->db->get_where('prodi', array('id_prodi' => $id_prodi))->row_array();
+
         $data['nonaktif'] = $this->M_Beranda->nonaktif($th, $id_prodi);
-        var_dump($data);
+        $this->load->library('Pdf');
+        $this->pdf->setPaper('legal', 'potrait');
+        $this->pdf->set_option('isRemoteEnabled', true);
+        // $this->pdf->render();
+        // $this->pdf->filename = $filename . '.pdf';
+        $this->pdf->load_view('beranda/nonaktif', $data);
     }
     public function cetak_ipk($id_prodi)
     {
-        $th = $this->db->get_where('tahun_ajaran', array('status' => '1'))->row_array();
-        $th = $th['id_tahun_ajaran'];
+        $data['tahun_ajaran'] = $this->db->get_where('tahun_ajaran', array('status' => '1'))->row_array();
+        $th =  $data['tahun_ajaran']['id_tahun_ajaran'];
+        $data['prodi'] = $this->db->get_where('prodi', array('id_prodi' => $id_prodi))->row_array();
         $data['list_ipk'] = $this->M_Beranda->list_ipk($th, $id_prodi);
-        var_dump($data);
+        $this->load->library('Pdf');
+        $this->pdf->setPaper('legal', 'potrait');
+        $this->pdf->set_option('isRemoteEnabled', true);
+        // $this->pdf->render();
+        // $this->pdf->filename = $filename . '.pdf';
+        $this->pdf->load_view('beranda/ipk', $data);
     }
     public function cetak_masa_studi($id_prodi)
     {
         $data['list_masa_studi'] = $this->M_Beranda->list_masa_studi($id_prodi);
-        var_dump($data);
+        $data['prodi'] = $this->db->get_where('prodi', array('id_prodi' => $id_prodi))->row_array();
+
+        $this->load->library('Pdf');
+        $this->pdf->setPaper('legal', 'potrait');
+        $this->pdf->set_option('isRemoteEnabled', true);
+        // $this->pdf->render();
+        // $this->pdf->filename = $filename . '.pdf';
+        $this->pdf->load_view('beranda/masa_studi', $data);
     }
 }

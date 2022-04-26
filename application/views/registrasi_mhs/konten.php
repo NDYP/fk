@@ -16,9 +16,9 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;">No.</th>
-                                <th style="text-align: center;">VA</th>
-                                <th style="text-align: center;">Slip</th>
-                                <th style="text-align: center;">Bukti</th>
+                                <th style="text-align: center;">No VA</th>
+                                <th style="text-align: center;">Slip Pembayaran</th>
+                                <th style="text-align: center;">Bukti Registrasi Univ</th>
                                 <th style="text-align: center;">Status</th>
                                 <th style="text-align: center;">Opsi</th>
                             </tr>
