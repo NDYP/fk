@@ -60,7 +60,7 @@
                                 <td style="text-align: center;">
                                     <?php if ($x['status'] == 0) : ?>
                                     <a href="<?= base_url('surat_aktif/terima/' . $x['id_surat_aktif']); ?>"
-                                        class="btn btn-social btn-sm btn-success"><i class="fa fa-check"></i> Tolak</a>
+                                        class="btn btn-social btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
                                     <!-- <a href="<?= base_url('surat_aktif/tolak/' . $x['id_surat_aktif']); ?>"
                                         class="btn btn-social btn-sm btn-success"><i class="fa fa-close"></i> Tolak</a> -->
                                     <a data-no="<?= $x['id_surat_aktif']; ?>" data-toggle="modal"

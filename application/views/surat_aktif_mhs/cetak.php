@@ -83,7 +83,7 @@
             <br>
             <font face="Arial Rounded MT Bold" font size="4">
                 <b>
-                    Nomor : </b>
+                    Nomor : <?= ctype_space(date('Y')) ?>/UN24.9/PD/<?= date('Y') ?></b>
     </p>
     <br>
     <p align="left">

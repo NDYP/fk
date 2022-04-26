@@ -79,13 +79,31 @@ class M_Khs extends CI_Model
             ->where('de.id_nilai =', NULL)
             ->where('d.id_mahasiswa', $id_mahasiswa)
             ->where('d.semester', $semester)
+            ->where('n.keterangan', 'L')
+
+            ->get()
+            ->row_array();
+        return $query;
+    }
+    public function sks_beban($id_mahasiswa, $semester)
+    {
+        $query = $this->db->select('SUM(m.sks) as sks, SUM(m.sks * n.angka) as sksn')
+            ->from('detail_krs d') //urut berdasarkan id
+            ->join('modul m', 'd.id_modul=m.id_modul', 'left')
+            ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
+            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            d.id_detail_krs > de.id_detail_krs))', 'left')
+            ->where('de.id_nilai =', NULL)
+            ->where('d.id_mahasiswa', $id_mahasiswa)
+            ->where('d.semester', $semester)
+
             ->get()
             ->row_array();
         return $query;
     }
     public function sks_kumultatif_lulus($id_mahasiswa, $semester)
     {
-        $query = $this->db->select('SUM(m.sks) as sks_lulus,SUM(m.sks * n.angka) as sksn')
+        $query = $this->db->select('SUM(m.sks) as sks_lulus, SUM(m.sks * n.angka) as sksn')
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
@@ -105,7 +123,9 @@ class M_Khs extends CI_Model
             ->from('detail_krs d') //urut berdasarkan id
             ->join('modul m', 'd.id_modul=m.id_modul', 'left')
             ->join('nilai n', 'd.id_nilai=n.id_nilai', 'left')
-            ->join('detail_krs de', 'd.id_modul = de.id_modul AND (d.id_nilai > de.id_nilai OR (d.id_nilai = de.id_nilai AND
+            ->join('detail_krs de', 'd.id_modul = de.id_modul
+             AND (d.id_nilai > de.id_nilai
+              OR (d.id_nilai = de.id_nilai AND
             d.id_detail_krs > de.id_detail_krs))', 'left')
             ->where('de.id_nilai =', NULL)
             ->where('d.id_mahasiswa', $id_mahasiswa)

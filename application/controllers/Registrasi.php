@@ -37,19 +37,12 @@ class Registrasi extends CI_Controller
     function slip($id_registrasi)
     {
         $data = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
-        // force_download('assets/berkas/mahasiswa/' . $data['slip'], NULL);
-        // fopen("base_url()/assets/berkas/mahasiswa/$data", "");
-        $tofile = realpath("assets/berkas/mahasiswa/" . $data);
-        header('Content-Type: application/pdf');
-        readfile($tofile);
+        force_download('assets/berkas/mahasiswa/' . $data['slip'], NULL);
     }
     function bukti($id_registrasi)
     {
         $data = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
-        // force_download('assets/berkas/mahasiswa/' . $data['regis_univ'], NULL);
-        $tofile = realpath("assets/berkas/mahasiswa/" . $data);
-        header('Content-Type: application/pdf');
-        readfile($tofile);
+        force_download('assets/berkas/mahasiswa/' . $data['regis_univ'], NULL);
     }
     function terima($id_registrasi)
     {
@@ -58,6 +51,8 @@ class Registrasi extends CI_Controller
         ];
         $regis = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
         $this->db->update('registrasi', $data, ['id_registrasi' => $id_registrasi]);
+        $this->session->set_flashdata('flash', 'diterima');
+
         redirect(base_url() . "registrasi/lihat/" . $regis['id_tahun_ajaran']);
     }
     function tolak($id_registrasi)
@@ -69,6 +64,8 @@ class Registrasi extends CI_Controller
         ];
         $regis = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
         $this->db->update('registrasi', $data, ['id_registrasi' => $id_registrasi]);
+        $this->session->set_flashdata('flash', 'ditolak');
+
         redirect(base_url() . "registrasi/lihat/" . $regis['id_tahun_ajaran']);
     }
 }

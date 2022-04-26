@@ -6,9 +6,14 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <a data-toggle="modal" data-target="#modal-default" class="btn btn-social btn btn-sm bg-red"><i
+                    <?php if ($this->session->userdata('id_mahasiswa') == $krs['id_mahasiswa']) : ?>
+                    <a href="<?= base_url('transkrip_mhs/tambah'); ?>" class="btn btn-social btn btn-sm bg-red"><i
                             class="fa fa-user-plus"></i>
                         Pengajuan</a>
+                    <?php endif; ?>
+                    <!-- <a data-toggle="modal" data-target="#modal-default" class="btn btn-social btn btn-sm bg-red"><i
+                            class="fa fa-user-plus"></i>
+                        Pengajuan</a> -->
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -20,7 +25,7 @@
                                 <th style="text-align: center;">NIM</th>
                                 <th style="text-align: center;">Nama</th>
                                 <th style="text-align: center;">IPK</th>
-                                <th style="text-align: center;">Selesai pada</th>
+                                <!-- <th style="text-align: center;">Selesai pada</th> -->
                                 <th style="text-align: center;">Status</th>
                                 <!-- <th style="text-align: center;">Pembimbing Akademik</th> -->
                                 <th style="text-align: center;">Aksi</th>
@@ -49,9 +54,9 @@
                                 <td align="center">
                                     <?= $x['ipk'] ?>
                                 </td>
-                                <td align="center">
+                                <!-- <td align="center">
                                     <?= date('M Y', strtotime($x['selesai_pada'])); ?>
-                                </td>
+                                </td> -->
 
                                 <td align="center">
                                     <?php if ($x['status'] == 0) : ?>
@@ -83,17 +88,17 @@
 </section>
 <!-- /.content -->
 
-<div class="modal fade" id="modal-default">
+<!-- <div class="modal fade" id="modal-default">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
+                    <span aria-text="true">&times;</span></button>
                 <h4 class="modal-title">Pengajuan Transkrip</h4>
             </div>
             <form action="<?= base_url('transkrip_mhs/tambah'); ?>" method="POST" enctype="multipart/form-data">
-                <div class="modal-body">
-                    <!-- <div class="row">
+                <div class="modal-body"> -->
+<!-- <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Nama</label>
@@ -143,47 +148,38 @@
                                     placeholder="">
                             </div>
                         </div>
-                    </div> -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Lulus pada * (sesuai ijazah)</label>
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right" name="selesai_pada"
-                                        value="<?= set_value('selesai_pada'); ?>" id="datepicker" required>
-                                    <input name="ipk" value="<?= $ipk; ?>" type="hidden" class="form-control" id=""
-                                        placeholder="" readonly>
-                                    <input name="sksn" value="<?= $sksn; ?>" type="hidden" class="form-control" id=""
-                                        placeholder="">
-                                    <input name="sks" value="<?= $list['sks']; ?>" type="hidden" class="form-control"
-                                        id="" placeholder="" readonly>
-                                    <input name="jenjang"
-                                        value="<?= $list['prodi'] < 4 ? 'Sarjana / S1' : 'Dokter Umum'; ?>"
-                                        type="hidden" class="form-control" id="" placeholder="" readonly>
-                                    <input name="prodi" value="<?= $list['program_studi']; ?>" type="hidden"
-                                        class="form-control" id="" placeholder="" readonly>
-                                    <input name="nim" value="<?= $list['nim']; ?>" type="hidden" class="form-control"
-                                        id="" placeholder="" readonly>
-                                    <input name="nama" value="<?= $list['nama']; ?>" type="hidden" class="form-control"
-                                        id="" placeholder="" readonly>
-
-
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="">Lulus pada * (sesuai ijazah)</label>
+            <div class="input-group date">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Pengajuan</button>
-                </div>
-            </form>
+                <input type="text" class="form-control pull-right" name="selesai_pada" value="<?= set_value('selesai_pada'); ?>" id="datepicker" required>
+                <input name="ipk" value="<?= $ipk; ?>" type="text" class="form-control" id="" placeholder="" readonly>
+                <input name="sksn" value="<?= $sksn; ?>" type="text" class="form-control" id="" placeholder="">
+                <input name="sks" value="<?= $list['sks']; ?>" type="text" class="form-control" id="" placeholder="" readonly>
+                <input name="jenjang" value="<?= $list['prodi'] < 4 ? 'Sarjana / S1' : 'Dokter Umum'; ?>" type="text" class="form-control" id="" placeholder="" readonly>
+                <input name="prodi" value="<?= $list['program_studi']; ?>" type="text" class="form-control" id="" placeholder="" readonly>
+                <input name="nim" value="<?= $list['nim']; ?>" type="text" class="form-control" id="" placeholder="" readonly>
+                <input name="nama" value="<?= $list['nama']; ?>" type="text" class="form-control" id="" placeholder="" readonly>
+
+
+            </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
+
+</div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+    <button type="submit" class="btn btn-primary">Pengajuan</button>
+</div>
+</form>
+</div>
+/.modal-content
+</div>
+/.modal-dialog -->
 </div>

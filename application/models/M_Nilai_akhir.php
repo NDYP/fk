@@ -16,8 +16,8 @@ class M_Nilai_akhir extends CI_Model
     public function get($id_tahun_ajaran)
     {
         $query = $this->db->select('koordinator_modul.id_koordinator_modul,koordinator_modul.id_tahun_ajaran
-        ,modul.kode,modul.id_modul, modul.mata_kuliah,modul.sks, koordinator_modul.id_dosen2,
-        modul.sks,modul.semester, modul.semester as smt, prodi.id_prodi,
+        ,modul.kode,modul.id_modul, modul.mata_kuliah,modul.sks, koordinator_modul.id_dosen2, 
+        modul.sks,modul.semester, modul.semester as smt, prodi.id_prodi, modul.kurikulum,
         modul.tahun,modul.durasi, prodi.program_studi, a.nama, a.nip,  b.nama as nama_sekretaris, b.nip as nip_sekretaris,
         tahun_ajaran.tahun_akademik, tahun_ajaran.semester')
             ->from('koordinator_modul') //urut berdasarkan id

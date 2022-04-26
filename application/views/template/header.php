@@ -237,12 +237,13 @@ desired effect
                     </div>
                 </form> -->
                 <!-- /.search form -->
-
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">Akademik</li>
                     <!-- Optionally, you can add icons to the links -->
                     <?php if ($this->session->userdata('id_admin')) : ?>
+                    <li class=""><a href="<?= base_url('beranda') ?>"><i class="fa fa-dashboard"></i>
+                            <span>Beranda</span></a></li>
                     <li class=""><a href="<?= base_url('tahun_ajaran') ?>"><i class="fa fa-calendar"></i>
                             <span>Tahun Ajaran</span></a></li>
                     <li class=""><a href="<?= base_url('registrasi') ?>"><i class="fa fa-edit"></i>
@@ -253,7 +254,6 @@ desired effect
                             <span>Nilai Akhir </span></a></li>
                     <li class=""><a href="<?= base_url('khs') ?>"><i class="fa fa-print"></i>
                             <span>KHS </span></a></li>
-
                     <li class="treeview">
                         <a href="#"><i class="fa fa-folder"></i> <span>Pengajuan</span>
                             <span class="pull-right-container">
@@ -264,7 +264,7 @@ desired effect
                             <li><a href="<?= base_url('transkrip') ?>"><i class="fa fa-file"></i>
                                     <span>Transkrip Nilai</span></a></li>
                             <li><a href="<?= base_url('surat_aktif') ?>"><i class="fa fa-book"></i>
-                                    <span>SUrat Aktif</span></a></li>
+                                    <span>Surat Aktif</span></a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -297,8 +297,6 @@ desired effect
                                     <span>Program Studi</span></a></li>
                         </ul>
                     </li>
-
-
                     <?php elseif ($this->session->userdata('id_dosen')) : ?>
                     <li class=""><a href="<?= base_url('konsultasi') ?>"><i class="fa fa-users"></i>
                             <span>Konsultasi</span></a></li>
@@ -308,7 +306,6 @@ desired effect
                             <span>Mahasiswa</span></a></li>
                     <li class=""><a href="<?= base_url('daftar_hadir') ?>"><i class="fa fa-users"></i>
                             <span>Daftar Hadir</span></a></li>
-
                     <?php elseif ($this->session->userdata('id_mahasiswa')) : ?>
                     <li class=""><a href="<?= base_url('registrasi_mhs') ?>"><i class="fa fa-print"></i>
                             <span>Registrasi </span></a></li>
@@ -321,15 +318,11 @@ desired effect
                     <li class=""><a href="<?= base_url('transkrip_mhs') ?>"><i class="fa fa-print"></i>
                             <span>Transkrip</span></a></li>
                     <?php endif; ?>
-
-
-
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
             <!-- /.sidebar -->
         </aside>
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->

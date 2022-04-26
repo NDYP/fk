@@ -249,10 +249,10 @@
                 <?= $sks_kumultatif_lulus['sks_lulus'] ?: '-' ?>
             </td>
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0;border-style: dashed;" width=>
-                <?= $sks_kumultatif_beban['sksn'] ?>
+                <?= $sks_kumultatif_lulus['sksn'] ?>
             </td>
             <td style="text-align: center;border-bottom:0;border-left:0; border-right:0;border-style: dashed;" width=>
-                <?= number_format($sks_kumultatif_beban['sksn'] / $sks_kumultatif_beban['sks_lulus'], 2) ?>
+                <?= number_format($sks_kumultatif_lulus['sksn'] / $sks_kumultatif_lulus['sks_lulus'], 2) ?>
             </td>
         </tr>
     </table>

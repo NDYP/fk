@@ -40,20 +40,16 @@
                                 </td>
                                 </td>
                                 <td style="text-align: center;">
-                                    <!-- <a src="<?= base_url('assets/'); ?>foto/file.png"
+                                    <a src="<?= base_url('assets/'); ?>foto/file.png"
                                         href="<?= base_url('registrasi/slip/' . $x['id_registrasi']) ?>">
                                         <img width="30px" src="<?= base_url('assets/'); ?>foto/file.png" alt="">
-                                    </a> -->
-                                    <a target="_blank" href="<?= base_url('registrasi/slip/' . $x['id_registrasi']) ?>"
-                                        alt="">
                                     </a>
                                 </td>
                                 <td style="text-align: center;">
-                                    <!-- <a src="<?= base_url('assets/'); ?>foto/file.png" href="<?= base_url('registrasi/bukti/' . $x['id_registrasi']) ?>">
-                                            <img width="30px" src="<?= base_url('assets/'); ?>foto/file.png" alt="">
-                                        </a> -->
-                                    <a target="_blank" href="<?= base_url('registrasi/bukti/' . $x['id_registrasi']) ?>"
-                                        alt="">
+                                    <a src="<?= base_url('assets/'); ?>foto/file.png"
+                                        href="<?= base_url('registrasi/bukti/' . $x['id_registrasi']) ?>">
+                                        <img width="30px" src="<?= base_url('assets/'); ?>foto/file.png" alt="">
+                                    </a>
                                 </td>
                                 <td style="text-align: center;"><?= $x['status'] ?>
                                     <?php if ($x['status'] == 'Ditolak') : ?>

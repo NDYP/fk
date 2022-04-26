@@ -15,7 +15,7 @@
                                 <th style="text-align: center;">NIM</th>
                                 <th style="text-align: center;">Nama</th>
                                 <th style="text-align: center;">IPK</th>
-                                <th style="text-align: center;">Selesai pada</th>
+                                <!-- <th style="text-align: center;">Selesai pada</th> -->
                                 <th style="text-align: center;">Status</th>
                                 <!-- <th style="text-align: center;">Pembimbing Akademik</th> -->
                                 <th style="text-align: center;">Aksi</th>
@@ -44,9 +44,9 @@
                                 <td align="center">
                                     <?= $x['ipk'] ?>
                                 </td>
-                                <td align="center">
+                                <!-- <td align="center">
                                     <?= date('M Y', strtotime($x['selesai_pada'])); ?>
-                                </td>
+                                </td> -->
                                 <td align="center">
                                     <?php if ($x['status'] == 0) : ?>
                                     Pengajuan

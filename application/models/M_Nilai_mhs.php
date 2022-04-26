@@ -16,7 +16,7 @@ class M_Nilai_mhs extends CI_Model
     public function get($id_tahun_ajaran)
     {
         $query = $this->db->select('modul.kode,modul.id_modul, modul.mata_kuliah,modul.sks, modul.semester as smt, prodi.id_prodi,
-        modul.tahun,modul.durasi, prodi.program_studi')
+        modul.tahun,modul.durasi, prodi.program_studi, modul.kurikulum')
             ->from('modul') //urut berdasarkan id
             ->join('koordinator_modul', 'modul.id_modul=koordinator_modul.id_modul', 'left')
             ->join('tahun_ajaran', 'koordinator_modul.id_tahun_ajaran=tahun_ajaran.id_tahun_ajaran', 'left')

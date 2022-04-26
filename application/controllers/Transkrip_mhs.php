@@ -15,15 +15,14 @@ class Transkrip_mhs extends CI_Controller
         $data['title'] = 'Transkrip';
         $data['title2'] = 'Index Data';
 
-        $id_mahasiswa = $this->session->userdata('id_mahasiswa');
-        $data['list'] = $this->M_Transkrip_mhs->krs_get($id_mahasiswa);
-        $data['sks'] = $data['list']['sks'];
-        // $data['nilai'] = $data['list']['nilai'];
-        $data['sksn'] = $data['list']['sksn'];
-        $data['ipk'] = number_format($data['list']['sksn'] / $data['list']['sks'], 2);
+        // $id_mahasiswa = $this->session->userdata('id_mahasiswa');
+        // $data['list'] = $this->M_Transkrip_mhs->krs_get($id_mahasiswa);
+        // $data['sks'] = $data['list']['sks'] == NULL ?: 0;
+
+        // $data['sksn'] = $data['list']['sksn'];
+        // $data['ipk'] = number_format($data['list']['sksn'] / $data['list']['sks'], 2);
         $data['transkrip'] = $this->M_Transkrip_mhs->index();
-        // var_dump($data['sksn']);
-        // var_dump($data['sks']);
+        $data['krs'] = $this->db->get('detail_krs')->row_array();
         $this->load->view('template/header', $data);
         $this->load->view('transkrip_mhs/konten', $data);
         $this->load->view('template/footer', $data);
@@ -38,17 +37,19 @@ class Transkrip_mhs extends CI_Controller
         $data['ttd_nama'] = $data['ttd']['nama'];
         $data['ttd_nip'] = $data['ttd']['nip'];
 
-        $nama = $this->input->post('nama');
-        $prodi = $this->input->post('prodi');
-        $nim = $this->input->post('nim');
-        $jenjang = $this->input->post('jenjang');
-        $selesai_pada = $this->input->post('selesai_pada');
-
-        $sks = $this->input->post('sks');
-        $sksn = $this->input->post('sksn');
-        $ipk = $this->input->post('ipk');
-
-        $data = array(
+        $id_mahasiswa = $this->session->userdata('id_mahasiswa');
+        $data['list'] = $this->M_Transkrip_mhs->krs_get($id_mahasiswa);
+        $data['krs_beban'] = $this->M_Transkrip_mhs->krs_beban($id_mahasiswa);
+        $data['sks'] = $data['list']['sks'];
+        $sks = $data['list']['sks'];
+        $nama = $data['list']['nama'];
+        $nim = $data['list']['nim'];
+        $prodi = $data['list']['program_studi'];
+        // $data['nilai'] = $data['list']['nilai'];
+        $sksn = $data['list']['sksn'];
+        $ipk = number_format($data['list']['sksn'] / $data['krs_beban']['sks'], 2);
+        $jenjang = $data['list']['program_studi'] < 4 ? 'Sarjana / S1' : 'Dokter Umum';
+        $x = array(
             'id_mahasiswa' => $id_mahasiswa,
             'status' => '0',
             'ttd_nama' => $data['ttd_nama'],
@@ -57,15 +58,15 @@ class Transkrip_mhs extends CI_Controller
             'nim' => $nim,
             'prodi' => $prodi,
             'jenjang' => $jenjang,
-            'selesai_pada' => date('Y-m-d', strtotime($selesai_pada)),
+            // 'selesai_pada' => date('Y-m-d', strtotime($selesai_pada)),
             'sks' => $sks,
             'sksn' => $sksn,
             'ipk' => $ipk,
         );
-        $this->M_Transkrip_mhs->tambah('transkrip', $data);
+        $this->M_Transkrip_mhs->tambah('transkrip', $x);
         $this->session->set_flashdata('flash', 'ditambah');
         redirect('transkrip_mhs');
-        // var_dump($data['sksn']);
+        // var_dump($x);
     }
     function cetak($id_transkrip)
     {

@@ -76,10 +76,10 @@ class Modul extends CI_Controller
                 'kode' => $kode,
                 'mata_kuliah' => $mata_kuliah,
                 'sks' => $sks,
-                'semester' => $semester,
-                'tahun' => $tahun,
-                'durasi' => $durasi,
-                'prodi' => $prodi,
+                'semester' => (!empty($semester)) ? $semester : NULL,
+                'tahun' => (!empty($tahun)) ? $tahun : NULL,
+                'durasi' => (!empty($durasi)) ? $durasi : NULL,
+                'prodi' => (!empty($prodi)) ? $prodi : NULL,
                 'kurikulum' => $kurikulum,
 
             );

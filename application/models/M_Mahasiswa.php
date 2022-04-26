@@ -19,7 +19,10 @@ class M_Mahasiswa extends CI_Model
     {
         $query = $this->db->select('dosen.nama as nama_dosen,dosen.nip as nip_dosen,mahasiswa.nama, mahasiswa.nim,
         dosen.nama as nama_dosen, mahasiswa.foto, mahasiswa.email, mahasiswa.id_mahasiswa,mahasiswa.kontak_ortu,
-        mahasiswa.nama_ibu,mahasiswa.alamat_ortu,mahasiswa.prodi,mahasiswa.dosen_pa,
+        mahasiswa.nama_ibu,mahasiswa.alamat_ortu,mahasiswa.prodi,mahasiswa.dosen_pa, mahasiswa.asal_sekolah,
+        mahasiswa.tahun_lulus,
+        mahasiswa.ktp, mahasiswa.ijazah_sma,mahasiswa.agama,mahasiswa.pekerjaan_ayah, mahasiswa.pekerjaan_ibu,
+        mahasiswa.alamat_kantor_ayah,mahasiswa.alamat_kantor_ibu, mahasiswa.penghasilan_ayah, mahasiswa.penghasilan_ibu,
         mahasiswa.alamat,mahasiswa.nama_ayah,mahasiswa.kontak_ortu,prodi.program_studi,mahasiswa.ukt,mahasiswa.jalur_masuk,
         mahasiswa.tahun_masuk,mahasiswa.kontak, mahasiswa.nik, mahasiswa.tanggal_lahir, mahasiswa.tempat_lahir, mahasiswa.jenis_kelamin')
             ->from('mahasiswa') //urut berdasarkan id

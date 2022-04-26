@@ -39,11 +39,19 @@
                                     <?= form_error('nim', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">NIK</label>
                                     <input name="nik" value="<?= $mahasiswa['nik']; ?>" type=" text"
                                         class="form-control" id="" placeholder="" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">KTP</label>
+                                    <br>
+                                    <a href="<?= base_url('mahasiswa/ktp/' . $mahasiswa['id_mahasiswa']) ?>">Link
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -148,6 +156,54 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <label for="">Pekerjaan Ayah</label>
+
+                                    <input name="alamat_kantor_ayah" value="<?= $mahasiswa['pekerjaan_ayah']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="" readonly>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Pekerjaan Ibu</label>
+                                    <input name="alamat_kantor_ayah" value="<?= $mahasiswa['pekerjaan_ibu']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Alamat Kantor Ayah</label>
+                                    <input name="alamat_kantor_ayah" value="<?= $mahasiswa['alamat_kantor_ayah']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Penghasilan Ayah</label>
+                                    <input name="penghasilan_ayah" value="<?= $mahasiswa['penghasilan_ayah']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Penghasilan Ibu</label>
+                                    <input name="penghasilan_ibu" value="<?= $mahasiswa['penghasilan_ibu']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Alamat Kantor Ibu</label>
+                                    <input name="alamat_kantor_ibu" value="<?= $mahasiswa['alamat_kantor_ibu']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label>Alamat</label>
                                     <textarea type="text" class="form-control" name="alamat_ortu" readonly><?= $mahasiswa['alamat_ortu']; ?>
                                     </textarea>
@@ -205,12 +261,31 @@
                                     <?= form_error('dosen_pa', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
                             </div>
+
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="">NIK</label>
-                                    <input name="ukt" value="<?= $mahasiswa['nip_dosen']; ?>" type=" text"
-                                        class="form-control" id="" placeholder="Tanpa tanda baca" readonly>
-                                    <?= form_error('dosen_pa', '<small class="text-danger pl-1">', '</small>'); ?>
+                                    <label for="">Asal Sekolah *</label>
+                                    <input name="asal_sekolah" value="<?= $mahasiswa['asal_sekolah']; ?>" type=" text"
+                                        class="form-control" id="" placeholder="" readonly>
+                                    <?= form_error('asal_sekolah', '<small class="text-danger pl-1">', '</small>'); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Tahun Lulus *</label>
+                                    <input name="tahun_lulus" value="<?= $mahasiswa['tahun_lulus']; ?>" type=" text"
+                                        class="form-control" id="" placeholder="" readonly>
+                                    <?= form_error('tahun_lulus', '<small class="text-danger pl-1">', '</small>'); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Ijazah</label>
+                                    <br>
+                                    <a href="<?= base_url('mahasiswa/ijazah/' . $mahasiswa['id_mahasiswa']) ?>">Link
+
                                 </div>
                             </div>
                         </div>

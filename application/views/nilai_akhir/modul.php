@@ -18,6 +18,7 @@
                             <tr>
                                 <th style="text-align: center;">No.</th>
                                 <th style="text-align: center;">Prodi</th>
+                                <th style="text-align: center;">Kurikulum</th>
                                 <th style="text-align: center;">Kode MK</th>
                                 <th style="text-align: center;">Mata Kuliah</th>
                                 <th style="text-align: center;">SKS</th>
@@ -33,6 +34,7 @@
                                     <?= $no++ ?>
                                 </td>
                                 <td><?= $x['program_studi'] ?></td>
+                                <td><?= $x['kurikulum'] ?></td>
                                 <td><?= $x['kode'] ?></td>
                                 <td><?= $x['mata_kuliah'] ?>
                                 <td><?= $x['sks'] ?>

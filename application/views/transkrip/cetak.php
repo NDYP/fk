@@ -135,7 +135,7 @@
                 SELESAI PADA
             </td>
             <td width=5 style="padding: 1px; margin: 1px">: </td>
-            <td width=130> <?= date('F Y', strtotime(strtoupper($transkrip['selesai_pada']))); ?> </td>
+            <td width=130> - </td>
         </tr>
     </table>
     <br>

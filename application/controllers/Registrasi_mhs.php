@@ -25,11 +25,9 @@ class Registrasi_mhs extends CI_Controller
         $this->form_validation->set_rules('id_mahasiswa', 'id_mahasiswa', 'required|trim', [
             'required' => 'Tidak Boleh Kosong!'
         ]);
-        $this->form_validation->set_rules('id_tahun_ajaran', 'id_tahun_ajaran', 'required|trim|is_unique[registrasi.id_tahun_ajaran]', [
+        $this->form_validation->set_rules('id_tahun_ajaran', 'id_tahun_ajaran', 'required|trim|callback_check', [
             'required' =>
-            'Tidak Boleh Kosong!',
-            'is_unique' => 'Registrasi sudah ada'
-
+            'Tidak Boleh Kosong!'
         ]);
         if (empty($_FILES['slip']['name'])) {
             $this->form_validation->set_rules('slip', 'slip', 'required|trim', [
@@ -58,7 +56,7 @@ class Registrasi_mhs extends CI_Controller
             if (!empty($_FILES['slip']['name'])) {
                 $config['upload_path']          = './assets/berkas/mahasiswa/';
                 $config['allowed_types']        = 'pdf|jpg|png';
-                $config['max_size']             = 1000;
+                $config['max_size']             = 10000;
                 $config['remove_spaces'] = TRUE;
                 $config['encrypt_name'] = TRUE;
                 $this->upload->initialize($config);
@@ -69,7 +67,7 @@ class Registrasi_mhs extends CI_Controller
             if (!empty($_FILES['regis_univ']['name'])) {
                 $config['upload_path']          = './assets/berkas/mahasiswa/';
                 $config['allowed_types']        = 'pdf|jpg|png';
-                $config['max_size']             = 1000;
+                $config['max_size']             = 10000;
                 $config['remove_spaces'] = TRUE;
                 $config['encrypt_name'] = TRUE;
                 $this->upload->initialize($config);
@@ -183,5 +181,18 @@ class Registrasi_mhs extends CI_Controller
     {
         $data = $this->db->get_where('registrasi', ['id_registrasi' => $id_registrasi])->row_array();
         force_download('assets/berkas/mahasiswa/' . $data['regis_univ'], NULL);
+    }
+    function check()
+    {
+        $id_tahun_ajaran = $this->input->post('id_tahun_ajaran'); // get first name
+        $id_mahasiswa = $this->input->post('id_mahasiswa'); // get last name
+        $check = $this->db->get_where('registrasi', array('id_tahun_ajaran' => $id_tahun_ajaran, 'id_mahasiswa' => $id_mahasiswa), 1);
+        $num = $check->num_rows();
+        if ($num > 0) {
+            $this->form_validation->set_message('check', 'Registrasi sudah ada');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 }

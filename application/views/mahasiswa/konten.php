@@ -34,7 +34,7 @@
                                 <td>
                                     <div class="product-img">
                                         <img class="img center-block img-responsive img-thumnail"
-                                            style="max-width: 200px;"
+                                            style="max-width: 100px;"
                                             src="<?= base_url('assets/foto/mahasiswa/' . $x['foto']) ?>" alt="">
                                     </div>
                                 </td>
@@ -57,7 +57,6 @@
                                     <a href="<?= base_url('mahasiswa/hapus/' . $x['id_mahasiswa']); ?>"
                                         class="btn btn-social-icon btn-danger tombol-hapus"><i class=" fa
                                         fa-trash"></i></a>
-
                                 </td>
                             </tr>
                             <?php endforeach; ?>

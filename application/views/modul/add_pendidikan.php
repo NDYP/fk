@@ -10,7 +10,7 @@
                     <br>
                     <h3 style="text-align : center"> Keterangan * : Tidak boleh kosong</h3>
                 </div>
-                <form action="<?= base_url('krs_list/tambah') ?>" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -78,7 +78,7 @@
                                 </select>
                                 <?= form_error('prodi', '<small class="text-danger pl-1">', '</small>'); ?>
                             </div>
-                            <div class="col-md-2">
+                            <!-- <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">Tahun *</label>
                                     <select name="tahun" class="form-control select2" style="width: 100%;">
@@ -91,14 +91,14 @@
                                             II
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
+                            </div> -->
+                            <!-- <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">Durasi (minggu)</label>
                                     <input name="durasi" value="<?= set_value('durasi'); ?>" type="text"
                                         class="form-control" id="" placeholder="isi ...">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-2">
                                 <label for="">Kurikulum *</label>
                                 <input name="kurikulum" value="<?= set_value('kurikulum'); ?>" type="text"

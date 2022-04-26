@@ -39,11 +39,20 @@
                                     <?= form_error('nim', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">NIK</label>
                                     <input name="nik" value="<?= $mahasiswa['nik']; ?>" type=" text"
                                         class="form-control" id="" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">KTP</label>
+                                    <input name="ktp" value="<?= $mahasiswa['ktp']; ?>" type="file" class="form-control"
+                                        id="" placeholder="isi ...">
+                                    <input name="ktp" value="<?= $mahasiswa['ktp']; ?>" type="hidden"
+                                        class="form-control" id="" placeholder="isi ...">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -114,7 +123,9 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">Foto</label>
-                                    <input name="foto" value="<?= set_value('foto'); ?>" type="file"
+                                    <input name="foto" value="<?= $mahasiswa['foto']; ?>" type="file"
+                                        class="form-control" id="" placeholder="isi ...">
+                                    <input name="foto" value="<?= $mahasiswa['foto']; ?>" type="hidden"
                                         class="form-control" id="" placeholder="isi ...">
                                 </div>
                             </div>
@@ -123,6 +134,33 @@
                                     <label>Alamat</label>
                                     <textarea type="text" class="form-control" name="alamat"><?= $mahasiswa['alamat']; ?>
                                     </textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Agama *</label>
+                                    <select name="agama" class="form-control select2" style="width: 100%;">
+
+                                        <option value="Hindu" <?= set_select('agama', 'Hindu'); ?>
+                                            <?php if ($mahasiswa['agama'] === 'Hindu') echo 'selected'; ?>>Hindu
+                                        </option>
+                                        <option value="Buddha" <?= set_select('agama', 'Buddha'); ?>
+                                            <?php if ($mahasiswa['agama'] === 'Buddha') echo 'selected'; ?>>Buddha
+                                        </option>
+                                        <option value="Kristen" <?= set_select('agama', 'Kristen'); ?>
+                                            <?php if ($mahasiswa['agama'] === 'Kristen') echo 'selected'; ?>>Kristen
+                                        </option>
+                                        <option value="Katolik" <?= set_select('agama', 'Katolik'); ?>
+                                            <?php if ($mahasiswa['agama'] === 'Katolik') echo 'selected'; ?>>Katolik
+                                        </option>
+                                        <option value="Islam" <?= set_select('agama', 'Islam'); ?>
+                                            <?php if ($mahasiswa['agama'] === 'Islam') echo 'selected'; ?>>Islam
+                                        </option>
+                                        <option value="Khonghucu" <?= set_select('agama', 'Khonghucu'); ?>
+                                            <?php if ($mahasiswa['agama'] === 'Khonghucu') echo 'selected'; ?>>Khonghucu
+                                        </option>
+                                    </select>
+                                    <?= form_error('agama', '<small class="text-danger pl-1">', '</small>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +194,110 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Alamat</label>
+                                    <label for="">Pekerjaan Ayah</label>
+
+                                    <select name="pekerjaan_ayah" class="form-control select2" style="width: 100%;">
+
+                                        <option value="Swasta" <?= set_select('pekerjaan_ayah', 'Swasta'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'Swasta') echo 'selected'; ?>>
+                                            Swasta
+                                        </option>
+                                        <option value="Wiraswasta" <?= set_select('pekerjaan_ayah', 'Wiraswasta'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'Wiraswasta') echo 'selected'; ?>>
+                                            Wiraswasta</option>
+                                        <option value="PNS" <?= set_select('pekerjaan_ayah', 'PNS'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'PNS') echo 'selected'; ?>>PNS
+                                        </option>
+                                        <option value="TNI/Polri" <?= set_select('pekerjaan_ayah', 'TNI/Polri'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'TNI/Polri') echo 'selected'; ?>>
+                                            TNI/Polri
+                                        </option>
+                                        <option value="Pekerja Lepas"
+                                            <?= set_select('pekerjaan_ayah', 'Pekerja Lepas'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'Pekerja Lepas') echo 'selected'; ?>>
+                                            Pekerja Lepas
+                                        </option>
+                                        <option value="Petani" <?= set_select('pekerjaan_ayah', 'Petani'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'Petani') echo 'selected'; ?>>
+                                            Petani
+                                        </option>
+                                        <option value="Pedagang" <?= set_select('pekerjaan_ayah', 'Pedagang'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ayah'] === 'Pedagang') echo 'selected'; ?>>
+                                            Pedagang
+                                        </option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Pekerjaan Ibu</label>
+                                    <select name="pekerjaan_ibu" class="form-control select2" style="width: 100%;">
+                                        <option value="Swasta" <?= set_select('pekerjaan_ibu', 'Swasta'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'Swasta') echo 'selected'; ?>>
+                                            Swasta
+                                        </option>
+                                        <option value="Wiraswasta" <?= set_select('pekerjaan_ibu', 'Wiraswasta'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'Wiraswasta') echo 'selected'; ?>>
+                                            Wiraswasta</option>
+                                        <option value="PNS" <?= set_select('pekerjaan_ibu', 'PNS'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'PNS') echo 'selected'; ?>>PNS
+                                        </option>
+                                        <option value="TNI/Polri" <?= set_select('pekerjaan_ibu', 'TNI/Polri'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'TNI/Polri') echo 'selected'; ?>>
+                                            TNI/Polri
+                                        </option>
+                                        <option value="Pekerja Lepas"
+                                            <?= set_select('pekerjaan_ibu', 'Pekerja Lepas'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'Pekerja Lepas') echo 'selected'; ?>>
+                                            Pekerja Lepas
+                                        </option>
+                                        <option value="Petani" <?= set_select('pekerjaan_ibu', 'Petani'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'Petani') echo 'selected'; ?>>
+                                            Petani
+                                        </option>
+                                        <option value="Pedagang" <?= set_select('pekerjaan_ibu', 'Pedagang'); ?>
+                                            <?php if ($mahasiswa['pekerjaan_ibu'] === 'Pedagang') echo 'selected'; ?>>
+                                            Pedagang
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Alamat Kantor Ayah</label>
+                                    <input name="alamat_kantor_ayah" value="<?= $mahasiswa['alamat_kantor_ayah']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Penghasilan Ayah</label>
+                                    <input name="penghasilan_ayah" value="<?= $mahasiswa['penghasilan_ayah']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Penghasilan Ibu</label>
+                                    <input name="penghasilan_ibu" value="<?= $mahasiswa['penghasilan_ibu']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Alamat Kantor Ibu</label>
+                                    <input name="alamat_kantor_ibu" value="<?= $mahasiswa['alamat_kantor_ibu']; ?>"
+                                        type=" text" class="form-control" id="" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Alamat orang tua</label>
                                     <textarea type="text" class="form-control" name="alamat_ortu"><?= $mahasiswa['alamat_ortu']; ?>
                                     </textarea>
                                 </div>
@@ -243,6 +384,34 @@
                                         <?php endforeach; ?>
                                     </select>
                                     <?= form_error('dosen_pa', '<small class="text-danger pl-1">', '</small>'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Asal Sekolah *</label>
+                                    <input name="asal_sekolah" value="<?= $mahasiswa['ijazah_sma']; ?>" type=" text"
+                                        class="form-control" id="" placeholder="">
+                                    <?= form_error('asal_sekolah', '<small class="text-danger pl-1">', '</small>'); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Tahun Lulus *</label>
+                                    <input name="tahun_lulus" value="<?= $mahasiswa['ijazah_sma']; ?>" type=" text"
+                                        class="form-control" id="" placeholder="">
+                                    <?= form_error('tahun_lulus', '<small class="text-danger pl-1">', '</small>'); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="">Ijazah</label>
+                                    <input name="ijazah_sma" value="<?= $mahasiswa['ijazah_sma']; ?>" type="file"
+                                        class="form-control" id="" placeholder="isi ...">
+                                    <input name="ijazah_sma" value="<?= $mahasiswa['ijazah_sma']; ?>" type="hidden"
+                                        class="form-control" id="" placeholder="isi ...">
+
                                 </div>
                             </div>
                         </div>

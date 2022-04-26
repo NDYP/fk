@@ -44,6 +44,7 @@ class Khs extends CI_Controller
         $data['list'] = $this->M_Khs->krs_get($id_mahasiswa, $semester);
         $data['sks_semester_lulus'] = $this->M_Khs->sks_semester_lulus($id_mahasiswa, $semester);
         $data['ips'] = $this->M_Khs->ips($id_mahasiswa, $semester);
+        $data['sks_beban'] = $this->M_Khs->sks_beban($id_mahasiswa, $semester);
         $data['sks_kumultatif_lulus'] = $this->M_Khs->sks_kumultatif_lulus($id_mahasiswa, $semester);
         $data['sks_kumultatif_beban'] = $this->M_Khs->sks_kumultatif_beban($id_mahasiswa, $semester);
 
@@ -58,7 +59,7 @@ class Khs extends CI_Controller
 
         $data = array(
             'id_krs' => $id_krs,
-            'ips' => number_format($data['ips']['sksn'] / $data['ips']['sks'], 2),
+            'ips' => number_format($data['ips']['sksn'] / $data['sks_beban']['sks'], 2),
             'sks_semester_beban' => $data['krs']['sks_yad'],
             'sks_semester_lulus' => $data['sks_semester_lulus']['sks_lulus'],
             // 'sks_semester_lulus' => $data['sks_kumultatif_lulus']['sks_lulus'],
@@ -70,14 +71,17 @@ class Khs extends CI_Controller
             'ttd_nama' => $ttd_nama,
             'ttd_nip' => $ttd_nip,
 
-            'ipk' => number_format($data['sks_kumultatif_beban']['sksn'] / $data['sks_kumultatif_beban']['sks_lulus']),
+            'ipk' => number_format($data['sks_kumultatif_lulus']['sksn'] / $data['sks_kumultatif_beban']['sks_lulus'], 2),
             'sks_kumultatif_beban' =>  $data['sks_kumultatif_beban']['sks_lulus'],
             'sks_kumultatif_lulus' =>  $data['sks_kumultatif_lulus']['sks_lulus'],
-            'sksn_kumultatif' =>  $data['sks_kumultatif_beban']['sksn'],
+            'sksn_kumultatif' =>  $data['sks_kumultatif_lulus']['sksn'],
         );
         $this->M_Krs->tambah('khs', $data);
-
-
+        $this->session->set_flashdata(
+            'flash',
+            'ditambah'
+        );
+        // var_dump($data['ipk']);
         // redirect(base_url() . "khs/lihat/" . $id_tahun_ajaran);
         redirect($_SERVER['HTTP_REFERER']);
     }
