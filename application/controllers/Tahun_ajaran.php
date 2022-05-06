@@ -19,7 +19,7 @@ class Tahun_ajaran extends CI_Controller
     }
     function tambah()
     {
-        $this->form_validation->set_rules('tahun_akademik', 'tahun_akademik', 'required|trim|is_unique[tahun_ajaran.tahun_akademik]', [
+        $this->form_validation->set_rules('tahun_akademik', 'tahun_akademik', 'required|trim|callback_check', [
             'required' => 'Tidak Boleh Kosong!',
             'is_unique' => 'Tahun akademik telah terdaftar'
         ]);
@@ -106,6 +106,19 @@ class Tahun_ajaran extends CI_Controller
         } else {
             $this->session->set_flashdata('info', 'Gagal Hapus Data');
             redirect('fat/index', 'refresh');
+        }
+    }
+    function check()
+    {
+        $tahun_akademik = $this->input->post('tahun_akademik'); // get first name
+        $semester = $this->input->post('semester'); // get last name
+        $check = $this->db->get_where('tahun_ajaran', array('tahun_akademik' => $tahun_akademik, 'semester' => $semester), 1);
+        $num = $check->num_rows();
+        if ($num > 0) {
+            $this->form_validation->set_message('check', 'Tahun ajaran sudah ada');
+            return FALSE;
+        } else {
+            return TRUE;
         }
     }
 }
